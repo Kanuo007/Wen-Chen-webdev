@@ -10,7 +10,17 @@ app.use(express.static(__dirname + '/public'));
 
 require ("./test/app.js")(app);
 
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+// Get Heroku ipAddress
+var ipAddr = req.headers["x-forwarded-for"];
+if (ipAddr){
+    var list = ipAddr.split(",");
+    ipAddr = list[list.length-1];
+} else {
+    ipAddr = req.connection.remoteAddress;
+}
 
-app.listen(port, ipaddress);
+app.set('ipaddress', (process.env.ipAddr));
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), app.get('ipaddress'));
+
