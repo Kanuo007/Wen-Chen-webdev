@@ -1,0 +1,228 @@
+input.form-control {
+    margin-bottom: 5px;
+}
+
+
+body {
+    padding-top: 0px;
+}
+
+
+.container{
+    padding-top: 40px;
+}
+
+.container-fluid{
+    padding-top: 40px;
+}
+
+.FisrtTop{
+    padding-top:80px;
+}
+
+#addtop{
+    padding-top:50px;
+}
+
+.bar{
+    height : 5px;
+    margin-top : 0px;
+    padding-top: 0px;:
+}
+
+
+.h3{
+    padding-top: 2px;
+    color : white;
+    margin: auto;
+    float:left;
+}
+
+.h3#item{
+    padding-top: 2px;
+    color : white;
+    margin: auto;
+}
+
+
+.website-list-style{
+    type : text;
+    font-size: medium;
+    font-weight: 500;
+    padding-top: 2px;
+    color : cornflowerblue;
+    margin: auto;
+    float:left;
+}
+
+.glyphicon{
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-right: 25px;
+    color: white;
+    float:right;
+}
+
+.glyphicon-chevron-left{
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-left: 15px;
+    padding-right: 5px;
+    color: white;
+    float:left;
+}
+
+.col-md-4#left{
+    padding-top: 20px;
+    margin: auto;
+    height: 100vh;
+    border-right: 1px solid;
+    border-color: lightgrey;
+}
+.col-md-4{
+    margin: auto;
+    float : left;
+}
+
+#right{
+    padding-top: 40px;
+}
+
+
+.glyphicon-cog{
+    color: cornflowerblue;
+    float:right;
+    padding-left : 0px;
+}
+
+
+#aaa{
+    maxlength:200;
+    height: 150px;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: auto;
+}
+
+.bbb{
+    font-size:30;
+    padding-top: 20px;
+}
+
+#listStyle{
+    width:350px;
+    height:100%;
+    padding-left: 0px;
+    list-style-type : none;
+}
+
+
+/*page style*/
+
+.smoke-bg{
+    padding-right: 10px;
+    background:whitesmoke;
+}
+
+#topPad{
+    padding-top: 10px;
+}
+
+.pageText{
+    color:lightslategrey;
+}
+
+.pageColor{
+    color: black;
+}
+
+.glyphicon-user#pageUser{
+    color: cornflowerblue;
+}
+
+/*widget style*/
+
+.chooserContainer{
+    height: 100vh;
+}
+.list-group{
+    padding-top: 20px;
+    height:80%;
+    border: 0px;
+
+}
+.list-group-item{
+    height:10%;
+    border: 0px;
+}
+
+
+.widgetText{
+    font-weight: 450;
+}
+
+#NamePad{
+    padding-top: 30px;
+}
+
+
+/*widget list*/
+
+.glyphicon-play{
+    float: left;
+    padding-left : 20px;
+}
+.glyphicon-eye-open {
+    float: left;
+    padding-left : 0px;
+}
+.glyphicon-menu-hamburger{
+    color:black;
+}
+
+.padBetweenIcons{
+    padding-right:0px;
+}
+
+
+.wrapper-position {
+    position: relative;
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-right : 8px;
+    padding-left : 5px;
+}
+
+.bottom-position{
+    z-index: -1;
+    position: relative;
+    padding-right: 0px;
+}
+
+.icon-position {
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.video {
+    max-width: 100%;
+    height: auto;
+}
+
+.contentText{
+    line-height: 20px;
+}
+
+#bottomPadding{
+    padding-bottom:80px;
+
+}
+
+
+.K{
+    color:lightskyblue;
+}
+
+
+
