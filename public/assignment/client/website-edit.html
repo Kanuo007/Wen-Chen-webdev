@@ -38,11 +38,19 @@
 
 
 
-
-    <div class = "container-fluid" >
+    <div class = "container-fluid"  id="addtop">
         <div id = "left" class = "col-md-4 hidden-sm hidden-xs" >
-            <nav class = navbar>
-                <a class = "navbar-brand" href= "page-list.html">
+            <nav class = "navbar bar" id = topPad>
+                <a class = "navbar-brand" href = "page-list.html">
+                    <span class = "website-list-style">Blogging App</span>
+                </a>
+                <a href="website-edit.html">
+                    <h4 class="glyphicon glyphicon-cog"></h4>
+                </a>
+            </nav>
+
+            <nav class = "navbar bar">
+                <a class = "navbar-brand" href = "page-list.html">
                     <span class = "website-list-style">Address Book App</span>
                 </a>
                 <a href="website-edit.html">
@@ -50,48 +58,43 @@
                 </a>
             </nav>
 
-            <nav class = navbar>
-                <a class = "navbar-brand" href= "page-list.html">
+            <nav class = "navbar bar">
+                <a class = "navbar-brand" href = "page-list.html">
+                    <span class = "website-list-style">Script Testing App</span>
+                </a>
+                <a href="website-edit.html">
+                    <h4 class="glyphicon glyphicon-cog"></h4>
+                </a>
+            </nav>
+
+            <nav class = "navbar bar">
+                <a class = "navbar-brand" href = "page-list.html">
                     <span class = "website-list-style">Blogger</span>
                 </a>
                 <a href="website-edit.html">
                     <h4 class="glyphicon glyphicon-cog" ></h4>
                 </a>
             </nav>
-
-            <nav class = navbar>
-                <a class = "navbar-brand" href= "page-list.html">
-                    <span class = "website-list-style">Blogger App</span>
-                </a>
-                <a href="website-edit.html" href = "website-edit.html">
-                    <h4 class="glyphicon glyphicon-cog"></h4>
-                </a>
             </nav>
-
-            <nav class = navbar>
-                <a class = "navbar-brand" href= "page-list.html">
-                    <span class = "website-list-style">Script Testing App</span>
-                </a>
-                <a href="website-edit.html" href = "website-edit.html">
-                    <h4 class="glyphicon glyphicon-cog" ></h4>
-                </a>
-            </nav>
-     </div>
-
-        <div id = "right" class = "col-md-8">
-            <h3>Website Name</h3>
-            <input type="text"
-                   class="form-control"
-                   placeholder="Blogger"/>
-            <h3>Website Discription</h3>
-            <textarea id ="aaa";
-                      type = text;
-                      class="form-control"
-                      placeholder="Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries."/></textarea>
-            <a id = textStyle class="btn btn-danger  btn-block"
-                href="website-list.html">Delete</a>
         </div>
-    </div>
+
+        <div class = "col-md-8" >
+            <form id = right>
+                <div class="form-group">
+                    <label for="Name" class = widgetText>Website Name</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Blog Name">
+                </div>
+                <div class="form-group">
+                    <label for="aaa" class = widgetText>WebSite Description</label>
+                    <textarea id ="aaa";
+                              type = text;
+                              class="form-control"
+                              placeholder="Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).[4] A user can have up to 100 blogs per account.[5]"/></textarea>
+                </div>
+            </form>
+            <a class="btn btn-danger  btn-block "
+               href="widget-list.html">Delete</a>
+        </div>
 
 
 

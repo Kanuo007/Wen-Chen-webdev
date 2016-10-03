@@ -55,6 +55,10 @@ body {
     float:left;
 }
 
+.listSize{
+    font-size: large;
+}
+
 .glyphicon{
     padding-top: 7.5px;
     padding-bottom: 7.5px;
