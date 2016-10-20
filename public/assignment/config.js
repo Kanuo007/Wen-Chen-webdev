@@ -16,27 +16,27 @@
                 controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "/webdev/public/assignment/views/user/register.view.client.html",
+                templateUrl: "views/user/register.view.client.html",
                 controller: "RegisterController",
                 controllerAs: "model"
             })
             .when("/user/:uid", {
-                templateUrl: "/webdev/public/assignment/views/user/profile.view.client.html",
+                templateUrl: "views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website", {
-                templateUrl: "/webdev/public/assignment/views/website/website-list.view.client.html",
+                templateUrl: "views/website/website-list.view.client.html",
                 controller: "WebsiteListController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website/new", {
-                templateUrl: "/webdev/public/assignment/views/website/website-new.view.client.html",
+                templateUrl: "views/website/website-new.view.client.html",
                 controller: "NewWebsiteController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid", {
-                templateUrl: "/webdev/public/assignment/views/website/website-edit.view.client.html",
+                templateUrl: "views/website/website-edit.view.client.html",
                 controller: "EditWebsiteController",
                 controllerAs: "model"
             })
@@ -46,27 +46,27 @@
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/new", {
-                templateUrl: "/webdev/public/assignment/views/page/page-new.view.client.html",
+                templateUrl: "views/page/page-new.view.client.html",
                 controller: "NewPageController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid", {
-                templateUrl: "/webdev/public/assignment/views/page/page-edit.view.client.html",
+                templateUrl: "views/page/page-edit.view.client.html",
                 controller: "EditPageController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget", {
-                templateUrl: "/webdev/public/assignment/views/widget/widget-list.view.client.html",
+                templateUrl: "views/widget/widget-list.view.client.html",
                 controller: "WidgetListController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/new", {
-                templateUrl: "/webdev/public/assignment/views/widget/widget-chooser.view.client.html",
+                templateUrl: "views/widget/widget-chooser.view.client.html",
                 controller: "NewWidgetController",
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
-                templateUrl: "/webdev/public/assignment/views/widget/widget-edit.view.client.html",
+                templateUrl: "views/widget/widget-edit.view.client.html",
                 controller: "EditWidgetController",
                 controllerAs: "model"
             })
