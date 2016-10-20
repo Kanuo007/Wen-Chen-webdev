@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-fixed-top smoke-bg">
-    <a href="widget-list.view.client.html">
+    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget"">
         <h4 class = "glyphicon glyphicon-chevron-left pageColor"></h4>
     </a>
 
@@ -13,7 +13,7 @@
 
 <div class = "container chooserContainer">
     <ul class = "list-group">
-        <a class = "list-group-item" id = topPad href ="widget-HEADER-view.client.html" >
+        <a class = "list-group-item" id = topPad href ="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.wgid}}/">
                 <span class = "website-list-style">Header</span></a>
         <a class = "list-group-item" href = "#">
                 <span class = "website-list-style">Label</span></a>
@@ -39,7 +39,7 @@
 
 
 <nav class="navbar navbar-fixed-bottom smoke-bg">
-    <a href="../client/user/profile.html">
+    <a href="#/user/{{model.uid}}">
         <h4 id = "pageUser" class="glyphicon glyphicon-user"></h4>
     </a>
 </nav>

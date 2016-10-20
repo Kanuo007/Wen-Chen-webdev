@@ -11,7 +11,6 @@
     </nav>
 
 
-
     <div class="container FisrtTop">
 
 
@@ -34,11 +33,20 @@
             </div>
         </form>
 
+        <a ng-click = "model.updateUser()"
+           class="btn btn-success btn-block">Update</a>
+
         <a class="btn btn-primary btn-block"
            href="#/user/{{model.user._id}}/website">Websites</a>
         <a class="btn btn-danger  btn-block"
            href="#/login">Logout</a>
+
+        <div ng-show="model.success" class = "alert alert-success" role = " alert">
+            {{model.success}}
+        </div>
+
     </div>
+
 
 
     <nav class="navbar navbar-fixed-bottom bg-primary">

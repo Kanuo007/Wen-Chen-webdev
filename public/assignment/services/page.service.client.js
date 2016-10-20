@@ -26,8 +26,7 @@
         return api;
 
         function createPage(websiteId, page) {
-            page.setAttribute("websiteId", websiteId);
-            pages.psuh(page);
+            pages.push(page);
         }
 
         function findPageByWebsiteId(websiteId) {
@@ -53,9 +52,7 @@
 
 
         function updatePage(pageId, page) {
-            var curpage = findPageById(pageId);
-            curpage.name = page.name;
-            curpage.websiteId = page.websiteId;
+
         }
 
         function deletePage(pageId) {

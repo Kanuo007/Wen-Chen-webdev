@@ -65,9 +65,12 @@
             </div>
         </form>
         <a ng-click = "model.updatePage()"
-           class="btn btn-primary btn-block">Update</a>
+           class="btn btn-success btn-block">Update</a>
         <a ng-click = "model.deletePage()"
            class="btn btn-danger btn-block">Delete</a>
+        <div ng-show="model.success" class = "alert alert-success" role = " alert">
+            {{model.success}}
+        </div>
     </div>
 
 

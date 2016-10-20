@@ -26,8 +26,8 @@
     };
         return api;
         function createUser(user) {
-            user.setAttribute("_id", user.username);
             users.push(user);
+            console.log(users);
         }
 
         function findUserByCredentials(username,password){
@@ -63,13 +63,11 @@
 
         function updateUser(userId, user) {
             for(var u in users){
-                if(users[u]._id === id){
-                    users[u].username = user.username;
-                    users[u].password = user.password;
-                    users[u].firstName = user.firstName;
-                    users[u].lastName = user.lastName;
+                if(users[u]._id === userId){
+                    users[u] = user
                 }
             }
+
         }
 
 

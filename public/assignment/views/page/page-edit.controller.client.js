@@ -20,6 +20,7 @@
         vm.pageId = $routeParams.pid;
 
         vm.deletePage = deletePage;
+        vm.updatePage = updatePage;
 
         function deletePage(){
             PageService.deletePage(vm.pageId);
@@ -32,6 +33,16 @@
         }
         init();
 
+        function updatePage(){
+            PageService.updatePage(vm.pageId , vm.page );
+            vm.success = "Success to update this page!"
+            $location.url("/user/" + vm.userId  + "/website/" + vm.websiteId + "/page/" + vm.pageId );
+        }
+
+        function deleteWebsite(){
+            PageService.deletePage(vm.pageId);
+            $location.url("/user/" + vm.userId  + "/website/" + vm.websiteId + "/page/");
+        }
 
     }
 

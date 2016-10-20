@@ -30,7 +30,7 @@
         return api;
 
         function createWebsite(userId, website) {
-            website.setAttribute("developerId", userId);
+
             websites.push(website);
         }
 
@@ -55,11 +55,9 @@
 
         function updateWebsite(websiteId, website) {
             for (var w in websites) {
-                if (websites[w]._id === websiteId) {
-                    websites[w].name = website.name;
-                    websites[w].developerId = website.developerId;
-                }
+                websites[w]= website;
             }
+
         }
 
         function deleteWebsite(websiteId) {
