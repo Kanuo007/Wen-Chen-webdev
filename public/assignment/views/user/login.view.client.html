@@ -1,0 +1,22 @@
+
+    <div class="container">
+        <h1>Login</h1>
+        <!--ng-show : chekc whehter truth- means not empty, not null, not false-->
+        <div ng-show="model.error" class = "alert alert-danger" role = " alert">
+            {{model.error}}
+        </div>
+        <!--model means data, we give a name "username" no matter what parse in-->
+        <!--model connect the controller-->
+        <input type="text"
+               ng-model = "model.username"
+               class="form-control"
+               placeholder="username"/>
+        <input type="password"
+               ng-model = "model.password"
+               class="form-control"
+               placeholder="password"/>
+        <a ng-click = "model.login(model.username, model.password)"
+           class="btn btn-primary btn-block">Login</a>
+        <a class="btn btn-success btn-block"
+           href="#/register">Register</a>
+    </div>

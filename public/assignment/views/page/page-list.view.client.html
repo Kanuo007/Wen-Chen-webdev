@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-fixed-top smoke-bg">
+
+    <a href="#/user/{{model.userId}}/website">
+        <h4  class = "glyphicon glyphicon-chevron-left pageColor"></h4>
+    </a>
+
+    <a class = "navbar-brand">
+        <span class = "h3 pageText">Pages</span>
+    </a>
+
+
+    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+        <h4 id = "pageColor" class="glyphicon glyphicon-plus pageColor" ></h4>
+    </a>
+
+</nav>
+
+
+
+
+<div class = "container-fluid" id="addtop">
+    <ul class = "list-group">
+        <li ng-repeat = "page in model.pages" class = "list-group-item">
+            <a href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                {{page.name}}
+            </a>
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}"
+               class = "pull right">
+                <span class="glyphicon glyphicon-cog" ></span>
+            </a>
+        </li>
+</div>
+
+
+
+
+
+
+<nav class="navbar navbar-fixed-bottom smoke-bg">
+    <a href="#/user/{{model.userId}}">
+        <h4 id = "pageUser" class="glyphicon glyphicon-user"></h4>
+    </a>
+</nav>

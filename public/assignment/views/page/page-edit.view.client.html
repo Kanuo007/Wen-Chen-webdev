@@ -1,0 +1,80 @@
+
+<nav class="navbar navbar-fixed-top smoke-bg">
+    <div class="col-md-4 hidden-sm hidden-xs">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+            <h4 class = "glyphicon glyphicon-chevron-left pageColor"></h4>
+        </a>
+        <a class = "navbar-brand">
+            <span class = "h3 pageText">Pages</span>
+        </a>
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+            <h4 class="glyphicon glyphicon-plus pageColor pageColor" ></h4>
+        </a>
+    </div>
+
+    <div class="col-md-8">
+        <div class = "visible-sm visible-xs">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                <h4 class = "glyphicon glyphicon-chevron-left pageColor"></h4>
+            </a>
+        </div>
+        <a class = "navbar-brand" href = #>
+            <span class = "h3 pageText" id = "topright" >Edit Page</span>
+        </a>
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+            <h4 class="glyphicon glyphicon-ok pageColor" ></h4>
+        </a>
+    </div>
+</nav>
+
+
+
+
+
+<div class = "container-fluid"  id="addtop">
+    <div id = "left" class = "col-md-4 hidden-sm hidden-xs" >
+            <ul class = "list-group">
+                <li ng-repeat = "page in model.pages" class = "list-group-item">
+                    <a href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                        {{page.name}}
+                    </a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}" class = "pull right">
+                        <span class="glyphicon glyphicon-cog" ></span>
+                    </a>
+                </li>
+            </ul>
+    </div>
+
+    <div class = "col-md-8" >
+        <form id = right>
+            <div class="form-group">
+                <label for="Name" class = widgetText>Name</label>
+                <input ng-model = "model.page.name"
+                       type="text"
+                       class="form-control"
+                       id="Name"
+                       placeholder="Blog Post">
+            </div>
+            <div class="form-group">
+                <label for="Text" class = widgetText>Title</label>
+                <input ng-model = "model.title"
+                       type="text"
+                       class="form-control"
+                       id="Text"
+                       placeholder="Page Title">
+            </div>
+        </form>
+        <a ng-click = "model.updatePage()"
+           class="btn btn-primary btn-block">Update</a>
+        <a ng-click = "model.deletePage()"
+           class="btn btn-danger btn-block">Delete</a>
+    </div>
+
+
+
+
+<nav class="navbar navbar-fixed-bottom smoke-bg">
+    <a ng-click href="#/user/{{model.userId}}">
+        <h4 id = "pageUser" class="glyphicon glyphicon-user"></h4>
+    </a>
+</nav>

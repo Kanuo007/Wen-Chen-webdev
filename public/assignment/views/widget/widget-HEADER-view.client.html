@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-</head>
-<body>
 
 <nav class="navbar navbar-fixed-top smoke-bg">
-    <a href="widget-list.html">
+    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
         <h4 class = "glyphicon glyphicon-chevron-left pageColor"></h4>
     </a>
     <a class = "navbar-brand">
         <span class = "h3 pageText" id = "topright" >Widget Edit</span>
     </a>
-    <a href="widget-list.html">
+    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
         <h4 class="glyphicon glyphicon-ok pageColor" ></h4>
     </a>
 </nav>
@@ -26,29 +16,34 @@
     <form>
         <div class="form-group">
             <label for="Name" class = widgetText>Name</label>
-            <input type="text" class="form-control" id="Name" placeholder="Name">
+            <input ng-model="model.widget.widgetType"
+                   type="text" class="form-control" id="Name" placeholder="Name">
         </div>
 
         <div class="form-group">
             <label for="Text" class = widgetText>Text</label>
-            <input type="text" class="form-control" id="Text" placeholder="This is an example for editing heading.">
+            <input ng-model="model.widget.text"
+                   type="text" class="form-control" id="Text" placeholder="this is a text example">
         </div>
 
         <div class="form-group">
             <label for="Size" class = widgetText>Size</label>
-            <input type="size" class="form-control" id="Size" placeholder="3">
+            <input ng-model="model.widget.size"
+                   type="size" class="form-control" id="Size" placeholder="2">
         </div>
     </form>
-    <a class="btn btn-danger  btn-block "
-       href="widget-list.html">Delete</a>
+
+
+    <a ng-click = "model.updateWidget()"
+       class="btn btn-success btn-block">Update</a>
+    <a ng-click = "model.deleteWidget()"
+       class="btn btn-danger btn-block">Delete</a>
+
 </div>
 
 
 <nav class="navbar navbar-fixed-bottom smoke-bg">
-    <a href="profile.html">
+    <a href="#/user/{{model.uid}}">
         <h4 id = "pageUser" class="glyphicon glyphicon-user"></h4>
     </a>
 </nav>
-
-</body>
-</html>

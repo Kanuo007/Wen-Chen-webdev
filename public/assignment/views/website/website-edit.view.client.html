@@ -1,0 +1,73 @@
+
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="col-md-4 hidden-sm hidden-xs">
+            <a href="#/user/{{model.userId}}/website">
+                <h4 class = "glyphicon glyphicon-chevron-left"></h4>
+            </a>
+            <a class = "navbar-brand">
+                <span class = "h3">Website</span>
+            </a>
+            <a href="#/user/{{model.userId}}/website/new">
+                <h4 class="glyphicon glyphicon-plus" ></h4>
+            </a>
+        </div>
+
+        <div class="col-md-8">
+            <div class =  "visible-sm visible-xs">
+                <a href="#/user/{{model.userId}}/website">
+                    <h4 class = "glyphicon glyphicon-chevron-left"></h4>
+                </a>
+            </div>
+            <a class = "navbar-brand">
+                <span class = "h3" id = "topright">Edit Website</span>
+            </a>
+            <a href="#/user/{{model.userId}}/website">
+                <h4 class="glyphicon glyphicon-ok" ></h4>
+            </a>
+        </div>
+    </nav>
+
+
+
+    <div class = "container-fluid"  id="addtop">
+        <div id = "left" class = "col-md-4 hidden-sm hidden-xs" >
+
+                <ul class = "list-group">
+                    <li ng-repeat = "website in model.websites" class = "list-group-item">
+                        <a href = "#/user/{{model.userId}}/website/{{website._id}}/page">
+                            {{website.name}}
+                        </a>
+                        <a href="#/user/{{model.userId}}/website/{{website._id}}" class = "pull right">
+                            <span class="glyphicon glyphicon-cog" ></span>
+                        </a>
+                    </li>
+        </div>
+
+
+        <div class = "col-md-8" >
+            <form id = right>
+                <div class="form-group">
+                    <label for="Name" class = widgetText>Website Name</label>
+                    <input ng-model = "model.website.name" type="text" class="form-control" id="Name" placeholder="Blog Name">
+                </div>
+                <div class="form-group">
+                    <label for="aaa" class = widgetText>WebSite Description</label>
+                    <textarea id ="aaa";
+                              type = text;
+                              ng-model = "model.discription"
+                              class="form-control"
+                              placeholder="Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).[4] A user can have up to 100 blogs per account.[5]"/></textarea>
+                </div>
+            </form>
+            <a class="btn btn-danger  btn-block "
+               href="#/user/{{model.userId}}/website/{{website._id}}">Delete</a>
+        </div>
+
+
+
+
+    <nav class="navbar navbar-fixed-bottom bg-primary">
+        <a href="#/user/{{model.userId}}">
+            <h4 class="glyphicon glyphicon-user"></h4>
+        </a>
+    </nav>

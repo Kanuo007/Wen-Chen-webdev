@@ -171,10 +171,14 @@ body {
 
 
 /*widget list*/
-
+.top{
+    padding-top: 60px;
+    padding-left : 15px;
+    padding-rigt : 10px;
+}
 .glyphicon-play{
     float: left;
-    padding-left : 20px;
+    padding-left : 40px;
 }
 .glyphicon-eye-open {
     float: left;

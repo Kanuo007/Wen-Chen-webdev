@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-fixed-top smoke-bg">
+    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page">
+        <h4 class = "glyphicon glyphicon-chevron-left pageColor"></h4>
+    </a>
+    <a class = "navbar-brand">
+        <span class = "h3 pageText">Widget</span>
+    </a>
+    <a href= "#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new">
+        <h4 class="glyphicon glyphicon-plus pageColor" ></h4>
+    </a>
+</nav>
+
+
+<div class = top ng-switch = "widget.widgetType"
+     ng-repeat = "widget in model.widgets">
+
+    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}" class = "pull right">
+        <span class="glyphicon glyphicon-cog"></span>
+    </a>
+
+    <div ng-switch = "widget.size" ng-switch-when = "HEADER">
+        <h1 ng-switch-when = 1>{{widget.text}}</h1>
+        <h2 ng-switch-when = 2>{{widget.text}}</h2>
+        <h3 ng-switch-when = 3>{{widget.text}}</h3>
+        <h4 ng-switch-when = 4>{{widget.text}}</h4>
+    </div>
+
+    <div ng-switch-when = "YOUTUBE">
+        <!--ng-src : iframe will wait service to get actual url back -->
+        <div class="embed-responsive embed-responsive-16by9">
+    <iframe class = "embed-responsive-item" ng-src = "{{model.checkSafeYoutubeUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        </div>
+
+    <div ng-switch-when = "IMAGE">
+        <img class = "img-responsive" ng-src = "{{model.checkSafeImage(widget.url)}}" />
+    </div>
+    <!-- pass html to controller and controller will check its safty first -->
+    <div ng-switch-when = "HTML" ng-bind-html = "model.checkSafeHtml(widget.text)">
+    </div>
+
+</div>
