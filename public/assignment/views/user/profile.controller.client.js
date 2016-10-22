@@ -12,7 +12,7 @@
 
             var userId = $routeParams.uid;
 
-            var user = UserService.findUserById(userId);
+            var user = angular.copy(UserService.findUserById(userId));
             vm.updateUser = updateUser;
 
 

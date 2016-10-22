@@ -52,7 +52,11 @@
 
 
         function updatePage(pageId, page) {
-
+            for (var w in pages) {
+                if(pages[w].pageId == pageId){
+                    pages[w] = angular.copy(page);
+                }
+            }
         }
 
         function deletePage(pageId) {

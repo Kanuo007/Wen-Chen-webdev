@@ -28,15 +28,16 @@
         }
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            vm.pages = angular.copy(PageService.findPageByWebsiteId(vm.websiteId));
             vm.page = PageService.findPageById(vm.pageId);
         }
         init();
 
         function updatePage(){
             PageService.updatePage(vm.pageId , vm.page );
-            vm.success = "Success to update this page!"
-            $location.url("/user/" + vm.userId  + "/website/" + vm.websiteId + "/page/" + vm.pageId );
+            vm.success = "Success to update this page!";
+            vm.pages = angular.copy(PageService.findPageByWebsiteId(vm.websiteId));
+            $location.url("/user/" + vm.userId  + "/website/" + vm.websiteId + "/page/" + vm.pageId);
         }
 
         function deleteWebsite(){

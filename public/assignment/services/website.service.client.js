@@ -55,9 +55,10 @@
 
         function updateWebsite(websiteId, website) {
             for (var w in websites) {
-                websites[w]= website;
+                if(websites[w].websiteId == websiteId){
+                    websites[w] = angular.copy(website);
+                }
             }
-
         }
 
         function deleteWebsite(websiteId) {
