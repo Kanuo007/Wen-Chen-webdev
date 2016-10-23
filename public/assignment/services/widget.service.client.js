@@ -25,21 +25,20 @@
             {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
         ];
 
+        var Types = ["HEADER","LABLE","HTML","Text Input","LINK","BUTTON","IMAGE","YOUTUBE","Data Table", "Repeater"];
+
         var api = {
             createWidget: createWidget,
             findWidgetsByPageId: findWidgetsByPageId,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            getTypes: getTypes
         }
         return api;
 
 
         function createWidget(pageId, widget) {
-            var d = new Date();
-            var n = d.getTime();
-            widget._Id = n.toString();
-            widget.pageId = pageId;
             widgets.push(widget);
         }
 
@@ -77,6 +76,10 @@
                     widgets.splice(w, 1);
                 }
             }
+        }
+
+        function getTypes(){
+            return Types;
         }
 
     }

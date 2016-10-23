@@ -21,7 +21,7 @@
          use init() function, it like tags or labels */
         function init() {
             vm.websites = angular.copy(WebsiteService.findWebsitesByUser(vm.userId));
-            vm.website  = WebsiteService.findWebsiteById(vm.wid) ;
+            vm.website  = WebsiteService.findWebsiteById(vm.wid);
         }
         init();
 
@@ -29,7 +29,7 @@
             WebsiteService.updateWebsite(vm.userId , vm.website);
             vm.success = "Success to update this website!"
             vm.websites = angular.copy(WebsiteService.findWebsitesByUser(vm.userId));
-            $location.url("/user/" + vm.userId  + "/website/" + vm.wid);
+            $location.url("/user/" + vm.userId  + "/website/"+ vm.wid);
         }
 
         function deleteWebsite(){

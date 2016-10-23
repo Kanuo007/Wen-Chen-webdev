@@ -1,42 +1,55 @@
 /**
  * Created by wenchen on 10/9/16.
  */
-(fucntion(){
+(function(){
     angular
         .module("WebAppMaker")
-        .controller()
+        .controller("NewWidgetController", NewWidgetController)
+
+    function NewWidgetController($location, $routeParams, WidgetService) {
+        var vm = this;
+        vm.uid = $routeParams.uid;
+        vm.wid = $routeParams.wid;
+        vm.pid = $routeParams.pid;
+        vm.newWidget = newWidget;
 
 
+        function init() {
+            vm.Types = WidgetService.getTypes();
+        }
 
-    {"_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-    {
-        "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-        "url": "http://lorempixel.com/400/200/"
-    },
-    {"_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-    {"_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-    {
-        "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-        "url": "https://youtu.be/AM2Ivdi9c4E"
-    },
-    {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+        init();
 
 
-    switch(vm.widgetType) {
-        case HEADER:
-            vm.widget =  {"_id": "", "widgetType": "HEADER", "pageId": "", "size": 0, "text": ""};
-            break;
-        case IMAGE:
-            vm.widget ={
-                "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "",
-                "url": ""
-            };
-            break;
-        case YOUTUBE:
-            vm.widget = {_id: "", name: "", websiteId: ""};
-            break;
+        function newWidget(type) {
+            console.log(type);
+            switch (type) {
+                case "HEADER":
+                    vm.widget = {_id: "", widgetType: "", pageId: "", size: 0, "text": ""};
+                    break;
+                case "HTML":
+                    vm.widget = {_id: "", widgetType: "", pageId: "", text: ""};
+                    break;
+                case "IMAGE":
+                    vm.widget = {_id: "", widgetType: "", pageId: "", width: "", url: ""};
+                    break;
+                case "YOUTUBE":
+                    vm.widget = {_id: "", widgetType: "", pageId: "", width: "", url: ""};
+                    break;
+                default: vm.widget = null;
+            }
+            if (vm.widget === null){
+                $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/new" );
+            }else {
+                vm.widget.widgetType = type;
+                vm.widget._id = vm.widget.widgetType + Math.floor((Math.random() * 10) + 1);
+                vm.widget.pageId = vm.pid;
+                WidgetService.createWidget(vm.widget.pageId, vm.widget);
+                $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.widget._id);
+            }
+        }
+
 
     }
-
 
 })();

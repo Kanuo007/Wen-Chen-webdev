@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-fixed-top smoke-bg">
-    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget"">
+    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
         <h4 class = "glyphicon glyphicon-chevron-left pageColor"></h4>
     </a>
 
@@ -11,32 +11,20 @@
 </nav>
 
 
+
 <div class = "container chooserContainer">
     <ul class = "list-group">
-        <a class = "list-group-item" id = topPad href ="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.wgid}}/">
-                <span class = "website-list-style">Header</span></a>
-        <a class = "list-group-item" href = "#">
-                <span class = "website-list-style">Label</span></a>
-        <a class = "list-group-item" href = "#">
-                <span class = "website-list-style">HTML</span></a>
-        <a class = "list-group-item" href = #>
-                <span class = "website-list-style">Text Input</span></a>
-        <a class = "list-group-item" href = #>
-            <span class = "website-list-style">Link</span></a>
-        <a class = "list-group-item" href = #>
-            <span class = "website-list-style">Button</span></a>
-        <a class = "list-group-item" href = "widget-IMAGE-view.client.html">
-            <span class = "website-list-style">Image</span></a>
-        <a class = "list-group-item" href = "widget-YOUTUBE-view.client.html">
-            <span class = "website-list-style">YouTube</span></a>
-        <a class = "list-group-item" href = #>
-            <span class = "website-list-style">Data Table</span></a>
-        <a class = "list-group-item" href = #>
-            <span class = "website-list-style">Repeater</span></a>
-    </div>
+        <button class = "list-group-item"
+                ng-repeat = "type in model.Types"\
+                ng-click = "model.newWidget(type)">
+            <h5 class = "website-list-style">{{type}}</h5>
+        </button>
+    </ul>
 </div>
 
 
+
+</div>
 
 <nav class="navbar navbar-fixed-bottom smoke-bg">
     <a href="#/user/{{model.uid}}">

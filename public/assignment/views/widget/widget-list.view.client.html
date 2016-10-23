@@ -15,15 +15,19 @@
 <div class = top ng-switch = "widget.widgetType"
      ng-repeat = "widget in model.widgets">
 
-    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}" class = "pull right">
-        <span class="glyphicon glyphicon-cog"></span>
-    </a>
+
+        <a href="#"><h4 class="glyphicon glyphicon-menu-hamburger padright"></h4></a>
+        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}" >
+            <h4 class="glyphicon glyphicon-cog padBetweenIcons"></h4></a>
+
 
     <div ng-switch = "widget.size" ng-switch-when = "HEADER">
         <h1 ng-switch-when = 1>{{widget.text}}</h1>
         <h2 ng-switch-when = 2>{{widget.text}}</h2>
         <h3 ng-switch-when = 3>{{widget.text}}</h3>
         <h4 ng-switch-when = 4>{{widget.text}}</h4>
+        <h5 ng-switch-when = 5>{{widget.text}}</h5>
+        <h6 ng-switch-when = 6>{{widget.text}}</h6>
     </div>
 
     <div ng-switch-when = "YOUTUBE">
@@ -39,5 +43,6 @@
     <!-- pass html to controller and controller will check its safty first -->
     <div ng-switch-when = "HTML" ng-bind-html = "model.checkSafeHtml(widget.text)">
     </div>
+
 
 </div>
