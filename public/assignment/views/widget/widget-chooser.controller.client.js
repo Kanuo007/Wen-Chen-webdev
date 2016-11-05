@@ -42,10 +42,16 @@
                 $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/new" );
             }else {
                 vm.widget.widgetType = type;
-                vm.widget._id = vm.widget.widgetType + Math.floor((Math.random() * 10) + 1);
+                vm.widget._id = (new Date()).getTime().toString();
                 vm.widget.pageId = vm.pid;
-                WidgetService.createWidget(vm.widget.pageId, vm.widget);
-                $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.widget._id);
+                var promise = WidgetService.createWidget(vm.widget.pageId, vm.widget);
+                promise
+                    .success(function(){
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.widget._id);
+                    })
+                    .error(function(){
+
+                    })
             }
         }
 

@@ -14,14 +14,14 @@
 
     <div class="col-md-8">
         <div class =  "visible-sm visible-xs">
-            <a href="website-list.view.client.html">
+            <a href="#/user/{{model.userId}}/website">
                 <h4 class = "glyphicon glyphicon-chevron-left"></h4>
             </a>
         </div>
         <a class = "navbar-brand">
             <span class = "h3" id = "topright">New Website</span>
         </a>
-        <a href="#/user/{{model.userId}}/website">
+        <a ng-click ="model.createWebsite(newWebSite)">
             <h4 class="glyphicon glyphicon-ok" ></h4>
         </a>
     </div>
@@ -49,19 +49,18 @@
         <form id = right>
             <div class="form-group">
                 <label for="Name" class = widgetText>Name</label>
-                <input ng-model="model.website.name"
+                <input ng-model="newWebSite.name"
                        type="text" class="form-control" id="Name" placeholder="Blog Name">
             </div>
             <div class="form-group">
                 <label for="aaa" class = widgetText>WebSite Description</label>
                 <textarea id ="aaa";
                           type = text;
-                          ng-model="model.description"
+                          ng-model="newWebSite.description"
                           class="form-control"
                           placeholder="Description"></textarea>
             </div>
-            <a ng-click = "model.newWebsite()"
-               class="btn btn-info btn-block">Creat New Website</a>
+
         </form>
 
 

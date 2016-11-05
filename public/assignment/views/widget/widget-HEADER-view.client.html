@@ -6,7 +6,7 @@
     <a class = "navbar-brand">
         <span class = "h3 pageText" id = "topright" >Widget Edit</span>
     </a>
-    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
+    <a ng-click = "model.updateWidget()">
         <h4 class="glyphicon glyphicon-ok pageColor" ></h4>
     </a>
 </nav>
@@ -16,24 +16,24 @@
     <form>
         <div class="form-group">
             <label for="Name" class = widgetText>Name</label>
-            <input type="text" class="form-control" id="Name" placeholder="Name">
+            <input ng-model ="model.widget.name"
+                   type="text" class="form-control" id="Name" placeholder="Name">
         </div>
 
         <div class="form-group">
             <label for="Text" class = widgetText>Text</label>
-            <input ng-model ="model.widget.text" type="text" class="form-control" id="Text" placeholder="this is a text example">
+            <input ng-model ="model.widget.text"
+                   type="text" class="form-control" id="Text" placeholder="this is a text example">
         </div>
 
         <div class="form-group">
             <label for="Size" class = widgetText>Size</label>
             <input ng-model="model.widget.size"
-                   type="size" class="form-control" id="Size" placeholder="2">
+                   type="number" class="form-control" id="Size" placeholder="2">
         </div>
     </form>
 
 
-    <a ng-click = "model.updateWidget()"
-       class="btn btn-success btn-block">Update</a>
     <a ng-click = "model.deleteWidget()"
        class="btn btn-danger btn-block">Delete</a>
 

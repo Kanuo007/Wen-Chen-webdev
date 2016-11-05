@@ -8,68 +8,45 @@
         .factory("WebsiteService", WebsiteService);
 
 
+// $scope allows client talk to controller
+// $http allows client talk to serve
+    function WebsiteService($http) {
 
-    function WebsiteService() {
-        var websites = [
-            {"_id": "123", "name": "Facebook", "developerId": "456"},
-            {"_id": "234", "name": "Tweeter", "developerId": "456"},
-            {"_id": "456", "name": "Gizmodo", "developerId": "456"},
-            {"_id": "567", "name": "Tic Tac Toe", "developerId": "123"},
-            {"_id": "678", "name": "Checkers", "developerId": "123"},
-            {"_id": "789", "name": "Chess", "developerId": "234"}
-        ];
 
         var api = {
-            createWebsite: createWebsite,
-            findWebsitesByUser: findWebsitesByUser,
-            findWebsiteById: findWebsiteById,
-            updateWebsite: updateWebsite,
-            deleteWebsite: deleteWebsite
+            createWebsite : createWebsite,
+            findWebsitesByUser : findWebsitesByUser,
+            findWebsiteById : findWebsiteById,
+            updateWebsite : updateWebsite,
+            deleteWebsite : deleteWebsite
         };
 
         return api;
 
         function createWebsite(userId, website) {
-
-            websites.push(website);
+            var url = "/api/user/" + userId +"/website";
+            return $http.post(url, website)
         }
 
-        function findWebsitesByUser(userId) {
-            var result = [];
-            for (var w in websites) {
-                if (websites[w].developerId === userId) {
-                    result.push(websites[w])
-                }
-            }
-            return result;
+        function findWebsitesByUser(userId){
+            var url  = "/api/user/" + userId +"/website";
+            return $http.get(url);
         }
 
         function findWebsiteById(websiteId) {
-            for (var w in websites) {
-                if (websites[w]._id === websiteId) {
-                    return websites[w];
-                }
-            }
-            return null;
+            var url = '/api/website/' + websiteId;
+            return $http.get(url, websiteId);
         }
 
         function updateWebsite(websiteId, website) {
-            for (var w in websites) {
-                if(websites[w].websiteId == websiteId){
-                    websites[w] = angular.copy(website);
-                }
-            }
+            var url = '/api/website/' + websiteId;
+            return $http.put(url, website);
         }
 
         function deleteWebsite(websiteId) {
-            for (var w in websites) {
-                if (websites[w]._id === websiteId) {
-                    websites.splice(w, 1);
-                }
-            }
+            var url = '/api/website/' + websiteId;
+            return $http.delete(url);
         }
-
-
     }
 
 })();

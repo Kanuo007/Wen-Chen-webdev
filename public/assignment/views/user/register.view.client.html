@@ -5,18 +5,18 @@
         </div>
         <h1>Register</h1>
         <input type="text"
-               ng-model= "model.user.username"
+               ng-model= "username"
                class="form-control"
                placeholder="username"/>
         <input type="password"
-               ng-model= "model.user.password"
+               ng-model= "password"
                class="form-control"
                placeholder="password"/>
         <input type="password"
-               ng-model= "model.varyPassword"
+               ng-model= "varyPassword"
                class="form-control"
                placeholder="very password"/>
-        <a ng-click = "model.register(model.user.username, model.user.password,  model.varyPassword)"
+        <a ng-click = "model.register(username, password, varyPassword)"
            class="btn btn-primary btn-block">Register</a>
         <a class="btn btn-danger  btn-block"
            href="#/login">Cancel</a>

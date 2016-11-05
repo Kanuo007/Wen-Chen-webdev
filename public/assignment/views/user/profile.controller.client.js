@@ -9,24 +9,48 @@
 
     function ProfileController($location, $routeParams, UserService) {
             var vm = this;
-
             var userId = $routeParams.uid;
-
-            var user = angular.copy(UserService.findUserById(userId));
             vm.updateUser = updateUser;
+            vm.deleteUser = deleteUser;
 
+        function init() {
+            var promise = UserService.findUserById(userId);
+            promise
+                .success(function (user) {
+                    if (user != '0') {
+                        vm.user = user;
+                    }else{
+                        console.log("no user found");
+                    }
+                })
+                .error(function () {
 
-            if (user != null){
-                vm.user = user;
-            }else{
-                return null;
-            }
+                });
+        }
+        init();
 
-            function updateUser(){
-                UserService.updateUser(userId,user);
-                vm.success = "Success to update your profile!"
-                $location.url(  "/user/" + userId);
-            }
+        function updateUser(){
+            promise = UserService.updateUser(vm.user);
+            promise
+                .success(function(){
+                    $location.url("/login");
+                })
+                .error(function(){
+
+                });
+
+        }
+
+        function deleteUser(){
+            var promise = UserService.deleteUser(vm.user._id);
+            promise
+                .success(function(){
+                    $location.url("/login");
+                })
+                .error(function(){
+
+                });
+        }
     }
 
 })();

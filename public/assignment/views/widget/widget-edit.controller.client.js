@@ -18,19 +18,38 @@
 
 
         function init(){
-            console.log(vm.widget);
-            vm.widget = WidgetService.findWidgetById(vm.wgid);
+            var promise = WidgetService.findWidgetById(vm.wgid);
+            promise
+                .success(function(widget){
+                    vm.widget = widget;
+                })
+                .error(function(){
+
+                })
+
         }
         init();
 
         function updateWidget(){
-            WidgetService.updateWidget(vm.wgid, vm.widget);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+            var promise = WidgetService.updateWidget(vm.wgid, vm.widget);
+            promise
+                .success(function(){
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                })
+                .error(function(){
+
+                })
         }
 
         function deleteWidget(){
-            WidgetService.deleteWidget(vm.wgid);
-            $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+            var promise = WidgetService.deleteWidget(vm.wgid);
+            promise
+                .success(function(){
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                })
+                .error(function(){
+
+                })
         }
 
     }

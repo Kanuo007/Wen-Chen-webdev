@@ -21,7 +21,7 @@
         <a class = "navbar-brand" href = #>
             <span class = "h3 pageText" id = "topright" >Edit Page</span>
         </a>
-        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+        <a ng-click = "model.updatePage()">
             <h4 class="glyphicon glyphicon-ok pageColor" ></h4>
         </a>
     </div>
@@ -64,13 +64,10 @@
                        placeholder="Page Title">
             </div>
         </form>
-        <a ng-click = "model.updatePage()"
-           class="btn btn-success btn-block">Update</a>
+
         <a ng-click = "model.deletePage()"
            class="btn btn-danger btn-block">Delete</a>
-        <div ng-show="model.success" class = "alert alert-success" role = " alert">
-            {{model.success}}
-        </div>
+
     </div>
 
 

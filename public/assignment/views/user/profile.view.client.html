@@ -4,7 +4,7 @@
             <span class = "h3" >Profile</span>
         </a>
 
-        <a href="#/login">
+        <a ng-click = "model.updateUser()" class = "nav-link">
             <h4 class="glyphicon glyphicon-ok" ></h4>
         </a>
 
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
+                <input ng-model= "model.user.email" type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
             </div>
             <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -33,17 +33,12 @@
             </div>
         </form>
 
-        <a ng-click = "model.updateUser()"
-           class="btn btn-success btn-block">Update</a>
-
         <a class="btn btn-primary btn-block"
            href="#/user/{{model.user._id}}/website">Websites</a>
         <a class="btn btn-danger  btn-block"
            href="#/login">Logout</a>
-
-        <div ng-show="model.success" class = "alert alert-success" role = " alert">
-            {{model.success}}
-        </div>
+        <a ng-click = model.deleteUser() class="btn btn-warning  btn-block">
+           <span>Unregister</span></a>
 
     </div>
 

@@ -18,8 +18,14 @@
         vm.checkSafeYoutubeUrl = checkSafeYoutubeUrl;
 
         function init(){
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pid);
-            console.log(vm.widgets);
+            var promise = WidgetService.findWidgetsByPageId(vm.pid);
+            promise
+                .success(function(widgets){
+                    vm.widgets = widgets;
+                })
+                .error(function(){
+
+                })
         }
         init();
 
@@ -28,16 +34,13 @@
         }
 
         function checkSafeImage(url) {
-            console.log(url);
             return $sce.trustAsResourceUrl(url);
         }
 
         function checkSafeYoutubeUrl(url) {
-            // console.log(url);
             var parts = url.split('/');
             var id = parts[parts.length - 1];
             url = "https://www.youtube.com/embed/"+id;
-            console.log(url);
             return $sce.trustAsResourceUrl(url);
         }
     }
