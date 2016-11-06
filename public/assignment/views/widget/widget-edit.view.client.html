@@ -1,8 +1,9 @@
 <div>
 
-    {{model.widget}}
-    <!--go fetch this html dynaimcally and plung it here-->
 
-    <div ng-include="'views/widget/widget-' + model.widget.widgetType +'-view.client.html'"></div>
+    <!--go fetch this html dynaimcally and plung it here-->
+    {{model.widget.widgetType}}
+
+    <div ng-include="'views/widget/widget-'+model.widget.widgetType+'-view.client.html'"></div>
 
 </div>

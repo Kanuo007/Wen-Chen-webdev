@@ -12,6 +12,8 @@
 </nav>
 
 
+<div jga-sortable pid ="{{model.pid}}"></div>
+
 <div class = top ng-switch = "widget.widgetType"
      ng-repeat = "widget in model.widgets">
 
@@ -43,6 +45,5 @@
     <!-- pass html to controller and controller will check its safty first -->
     <div ng-switch-when = "HTML" ng-bind-html = "model.checkSafeHtml(widget.text)">
     </div>
-
 
 </div>

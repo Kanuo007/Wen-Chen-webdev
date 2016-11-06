@@ -17,6 +17,7 @@
         vm.checkSafeImage = checkSafeImage;
         vm.checkSafeYoutubeUrl = checkSafeYoutubeUrl;
 
+
         function init(){
             var promise = WidgetService.findWidgetsByPageId(vm.pid);
             promise
@@ -26,6 +27,11 @@
                 .error(function(){
 
                 })
+        //     var widgets = $(".war-widgets")
+        //         .sortable({
+        //             axis: 'y'
+        //         });
+        //     console.log(widgets);
         }
         init();
 
@@ -43,6 +49,8 @@
             url = "https://www.youtube.com/embed/"+id;
             return $sce.trustAsResourceUrl(url);
         }
+
+
     }
 
 })();

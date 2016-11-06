@@ -15,9 +15,8 @@
         vm.updateWidget = updateWidget;
         vm.deleteWidget = deleteWidget;
 
-
-
         function init(){
+
             var promise = WidgetService.findWidgetById(vm.wgid);
             promise
                 .success(function(widget){
@@ -51,6 +50,7 @@
 
                 })
         }
+
 
     }
 

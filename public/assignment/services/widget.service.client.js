@@ -18,7 +18,8 @@
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
             deleteWidget: deleteWidget,
-            getTypes: getTypes
+            getTypes: getTypes,
+            sortWidget:sortWidget
         }
         return api;
 
@@ -51,6 +52,12 @@
         function getTypes(){
             return Types;
         }
+
+        function sortWidget(pid, start, end) {
+            var url = "/api/page/" + pid + "/widget?start=" + start + "&end=" + end;
+            return $http.put(url);
+        }
+
 
     }
 
