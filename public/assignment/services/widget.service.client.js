@@ -20,7 +20,8 @@
             deleteWidget: deleteWidget,
             getTypes: getTypes,
             sortWidget:sortWidget
-        }
+
+        };
         return api;
 
 

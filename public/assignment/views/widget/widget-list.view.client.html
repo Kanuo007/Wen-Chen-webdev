@@ -12,9 +12,9 @@
 </nav>
 
 
-<div jga-sortable pid ="{{model.pid}}"></div>
+<div jgaSortable pid ="{{model.pid}}">
 
-<div class = top ng-switch = "widget.widgetType"
+<div class = top  ng-switch = "widget.widgetType"
      ng-repeat = "widget in model.widgets">
 
 
@@ -46,4 +46,5 @@
     <div ng-switch-when = "HTML" ng-bind-html = "model.checkSafeHtml(widget.text)">
     </div>
 
+</div>
 </div>

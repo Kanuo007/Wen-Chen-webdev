@@ -70,6 +70,11 @@
                 controller: "EditWidgetController",
                 controllerAs: "model"
             })
+            .when("/searchImage", {
+                templateUrl: "views/widget/widget-flickr-search.view.client.html",
+                controller: "ImageSearchController",
+                controllerAs: "model"
+            })
             .otherwise({
                 redirectTo:"/login"
             });
