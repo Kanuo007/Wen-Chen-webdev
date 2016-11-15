@@ -4,8 +4,7 @@
 (function() {
     /* config functino will work as part of the angular with para you ask for, int route Provider */
     angular
-    /* tell the main module, we have other depnedency : ngRoute */
-        .module('WebAppMaker',['ngRoute'])
+        .module('WebAppMaker')
         .config(Config);
     function Config($routeProvider) {
         $routeProvider

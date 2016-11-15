@@ -8,7 +8,7 @@
         .module("WebAppMaker")
         .controller("ImageSearchController", ImageSearchController);
 
-    function ImageSearchController($http, $routeParams,FlickrService,WidgetService){
+    function ImageSearchController($http, $routeParams, FlickrService, WidgetService){
         var vm = this;
         vm.pid = $routeParams.pid;
         vm.uid = $routeParams.uid;
@@ -18,7 +18,7 @@
         vm.selectPhoto = selectPhoto;
 
         function searchPhotos(searchTerm){
-            console.log(searchTerm);
+            console.log("searchTerm");
             FlickrService
                 .searchPhotos(searchTerm)
                 .then(function(response) {
