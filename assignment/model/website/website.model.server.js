@@ -9,12 +9,53 @@ module.exports = function() {
     var WebsiteModel = mongoose.model("WebsiteModel", WebsiteSchema);
 
     var api = {
-        createWebsite: createWebsite
+        createWebsite: createWebsite,
+        findALLWebsitesForUser: findALLWebsitesForUser,
+        findWebsiteById: findWebsiteById,
+        updateWebsite: updateWebsite,
+        deleteWebsite: deleteWebsite
     };
     return api;
 
 
-    function createWebsite(page){
-        WebsiteModel.create(page);
+    function createWebsite(website){
+        return WebsiteModel.create(website);
     }
+
+
+    function findALLWebsitesForUser(userId) {
+       return WebsiteModel.find({
+           developerId : userId
+       })
+    }
+
+    function findWebsiteById(websiteId) {
+        return WebsiteModel.findById(websiteId);
+    }
+
+
+    function updateWebsite(websiteId, website){
+        return WebsiteModel
+            .update(
+                {
+                    _id: websiteId
+                },
+                {
+                    "name" : website.name,
+                    "description" : website.description,
+                    "developerId": website.developerId,
+                    "pages": website.pages,
+                    "dateCreated": Date.now()
+                }
+            );
+    }
+
+
+
+    function deleteWebsite(websiteId){
+        return WebsiteModel
+            .remove({_id: websiteId});
+    }
+
 };
+

@@ -4,9 +4,9 @@
 (function() {
     angular
         .module("WebAppMaker")
-        .factory("FlickrService", FlickrService);
+        .factory("MyFlickrService", MyFlickrService);
 
-    function FlickrService(){
+    function MyFlickrService(){
         var api = {
             searchPhotos : searchPhotos
         };

@@ -4,7 +4,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("NewWidgetController", NewWidgetController)
+        .controller("NewWidgetController", NewWidgetController);
 
     function NewWidgetController($location, $routeParams, WidgetService) {
         var vm = this;
@@ -25,32 +25,42 @@
             console.log(type);
             switch (type) {
                 case "HEADER":
-                    vm.widget = {_id: "", widgetType: "", pageId: "", size: 0, "text": ""};
+                    vm.widget = {widgetType: "", pageId: "", size: 0, "text": ""};
                     break;
                 case "HTML":
-                    vm.widget = {_id: "", widgetType: "", pageId: "", text: ""};
+                    vm.widget = {widgetType: "", pageId: "", text: ""};
                     break;
                 case "IMAGE":
-                    vm.widget = {_id: "", widgetType: "", pageId: "", width: "", url: ""};
+                    vm.widget = {widgetType: "", pageId: "", width: "", url: ""};
                     break;
                 case "YOUTUBE":
-                    vm.widget = {_id: "", widgetType: "", pageId: "", width: "", url: ""};
+                    vm.widget = {widgetType: "", pageId: "", width: "", url: ""};
+                    break;
+                case "TEXT":
+                    vm.widget = {widgetType: "", pageId: "", text: "", rows: 0, placeholder: "", formatted: false };
                     break;
                 default: vm.widget = null;
             }
+
             if (vm.widget === null){
                 $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/new" );
             }else {
                 vm.widget.widgetType = type;
-                vm.widget._id = (new Date()).getTime().toString();
                 vm.widget.pageId = vm.pid;
+
+                console.log("In widget controller, vm.widget is: " + vm.widget);
+                console.log("In widget controller, vm.widget.widgetType is: " + vm.widget.widgetType);
+                console.log("In widget controller, vm.widget.pageId is: " + vm.widget.pageId);
+
                 var promise = WidgetService.createWidget(vm.widget.pageId, vm.widget);
+
                 promise
-                    .success(function(){
-                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + vm.widget._id);
+                    .success(function(widget){
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget/" + widget._id);
+                        console.log("here!!!!");
                     })
                     .error(function(){
-
+                        console.log("error!!!!");
                     })
             }
         }

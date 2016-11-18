@@ -1,7 +1,7 @@
 /**
  * Created by wenchen on 11/1/16.
  */
-module.exports = function(app) {
+module.exports = function(app, model) {
     var multer = require('multer'); // npm install multer --save
     var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
     var widgets = [
@@ -29,53 +29,114 @@ module.exports = function(app) {
     app.put('/api/page/:pid/widget', sortWidget);
 
     function createWidget(req, res) {
+        console.log("Widget.Sevice.server, widget is " + req.body);
         var widget = req.body;
-        widgets.push(widget);
-        res.sendStatus(200);
+        model
+            .widgetModel
+            .createWidget(widget)
+            .then(
+                function(widget){
+
+                    res.json(widget);
+                },
+                function(error){
+                    console.log("aaaaa")
+                    res.sendStatus(400).send(error);
+                }
+
+            )
     }
 
     function findWidgetsByPageId(req, res) {
-        var result = [];
         var pid = req.params.pid;
-        for (var w in widgets) {
-            if (widgets[w].pageId === pid) {
-                result.push(widgets[w])
-            }
-        }
-        res.json(result);
+        model
+            .widgetModel
+            .findWidgetsByPageId(pid)
+            .then(
+                function(widgets){
+                    if(widgets){
+                        res.json(widgets);
+                    } else {
+                        res.json([]);
+                    }
+                },
+                function (error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
     function findWidgetById(req, res) {
         var wgid = req.params.wgid;
-        for (var w in widgets) {
-            if (widgets[w]._id === wgid) {
-                res.json(widgets[w]);
-            }
-        }
+        model
+            .widgetModel
+            .findWidgetById(wgid)
+            .then(
+                function(widget){
+                    if(widget){
+                        res.json(widget);
+                    } else {
+                        res.send('0')
+                    }
+                },
+                function (error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
     function updateWidget(req, res) {
         var widget = req.body;
         var wgid = req.params.wgid;
-        for (var w in widgets) {
-            if (widgets[w]._id === wgid) {
-                widgets[w] = widget;
-                break;
-            }
-        }
-        res.sendStatus(200);
+        model
+            .widgetModel
+            .updateWidget(wgid, widget)
+            .then(
+                function(status){
+                    res.sendStatus(200);
+                },
+                function(error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
 
     function deleteWidget(req, res) {
         var wgid = req.params.wgid;
-        for (var w in widgets) {
-            if (widgets[w]._id === wgid) {
-                widgets.splice(w, 1);
-            };
-        }
-        res.sendStatus(200);
+        model
+            .widgetModel
+            .deleteWidget(wgid)
+            .then(
+                function (status) {
+                    res.sendStatus(200);
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
+
+
+
+    function sortWidget(req, res) {
+        var pageId = req.params.pid;
+        var start = req.query.start;
+        var end = req.query.end;
+        // model
+        //     .widgetModel
+        //     .sortWidget(pageId, start, end)
+        //     .then(
+        //         function (status) {
+                    res.sendStatus(200);
+            //     },
+            //     function(error){
+            //         res.sendStatus(400).send(error);
+            //     }
+            // )
+    }
+
+
 
     function uploadImage(req, res) {
         var wgid = req.body.wgid;
@@ -84,30 +145,29 @@ module.exports = function(app) {
         var pid = req.body.pid;
         var myFile = req.file;
 
-        var originalname = myFile.originalname; // file name on user's computer
-        var filename = myFile.filename;     // new file name in upload folder
-        var path = myFile.path;         // full path of uploaded file
-        var destination = myFile.destination;  // folder where file is saved to
-        var size = myFile.size;
 
-        for (var w in widgets) {
-            if (widgets[w]._id === wgid) {
-                widgets[w].url = '/assignment/uploads/'+filename;
-                widgets[w].text = req.body.text;
-                widgets[w].width = req.body.width;
-                break;
-            }
-        }
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in uploads folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
 
-        var url = '/assignment/index.html#/user/' + uid + '/website/' + wid + '/page/' + pid + '/widget/';
-        res.redirect(url);
+        var newUrl = '/assignment/uploads/'+filename;
+        var updateOne = {"name": filename, "widgetType": "IMAGE", "text": req.body.text, "url": newUrl, "width": req.body.width, "pageId" : pid};
+        model
+            .widgetModel
+            .updateWidget(wgid, updateOne)
+            .then(
+                function(status){
+                    console.log(newUrl);
+                    var url = '/assignment/index.html#/user/' + uid + '/website/' + wid + '/page/' + pid + '/widget/';
+                    res.redirect(url);
+                },
+                function(error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
+
     }
 
-    function sortWidget(req, res) {
-        var pageId = req.params.pid;
-        var start = req.query.start;
-        var end = req.query.end;
-        widgets.splice(end, 0, widgets.splice(start, 1)[0]);
-        res.send('200');
-    }
 };

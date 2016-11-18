@@ -4,7 +4,7 @@
 (function() {
     /* config functino will work as part of the angular with para you ask for, int route Provider */
     angular
-        .module('WebAppMaker')
+        .module("WebAppMaker")
         .config(Config);
     function Config($routeProvider) {
         $routeProvider
@@ -70,8 +70,8 @@
                 controllerAs: "model"
             })
             .when("/searchImage", {
-                templateUrl: "views/widget/widget-flickr-search.view.client.html",
-                controller: "ImageSearchController",
+                templateUrl: "views/widget/widget-flk-search.view.client.html",
+                controller: "myController",
                 controllerAs: "model"
             })
             .otherwise({

@@ -10,7 +10,7 @@
 
     function WidgetService($http) {
 
-        var Types = ["HEADER","LABLE","HTML","Text Input","LINK","BUTTON","IMAGE","YOUTUBE","Data Table", "Repeater"];
+        var Types = ["HEADER", "HTML", "TEXT", "IMAGE", "YOUTUBE", "LABLE", "LINK","BUTTON","Data Table", "Repeater"];
 
         var api = {
             createWidget: createWidget,
@@ -26,6 +26,8 @@
 
 
         function createWidget(pageId, widget) {
+            console.log("widget.service.client, pageId "+pageId);
+            console.log("widget.service.client, widget " + widget);
             var url = "/api/page/" + pageId +"/widget";
             return $http.post(url, widget)
         }

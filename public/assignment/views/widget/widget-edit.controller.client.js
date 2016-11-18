@@ -21,9 +21,10 @@
             promise
                 .success(function(widget){
                     vm.widget = widget;
+                    console.log("Hit here");
                 })
                 .error(function(){
-
+                    console.log("error");
                 })
 
         }

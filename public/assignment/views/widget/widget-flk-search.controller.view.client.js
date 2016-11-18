@@ -6,9 +6,10 @@
 (function() {
     angular
         .module("WebAppMaker")
-        .controller("ImageSearchController", ImageSearchController);
+        .controller("myController", myController);
 
-    function ImageSearchController($http, $routeParams, FlickrService, WidgetService){
+    function myController($http, $routeParams, WidgetService, MyFlickrService){
+
         var vm = this;
         vm.pid = $routeParams.pid;
         vm.uid = $routeParams.uid;
@@ -19,7 +20,7 @@
 
         function searchPhotos(searchTerm){
             console.log("searchTerm");
-            FlickrService
+            MyFlickrService
                 .searchPhotos(searchTerm)
                 .then(function(response) {
                     data = response.data.replace("jsonFlickrApi(","");
@@ -41,5 +42,5 @@
 
     }
 
-});
+})();
 

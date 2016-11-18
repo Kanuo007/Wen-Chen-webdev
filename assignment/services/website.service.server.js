@@ -1,7 +1,7 @@
 /**
  * Created by wenchen on 11/1/16.
  */
-module.exports = function(app) {
+module.exports = function(app, model) {
     var websites = [
         {"_id": "123", "name": "Facebook", "developerId": "456"},
         {"_id": "234", "name": "Tweeter", "developerId": "456"},
@@ -18,54 +18,91 @@ module.exports = function(app) {
 
     function createWebsite(req, res) {
         var website = req.body;
-        websites.push(website);
-        res.sendStatus(200);
+        model
+            .websiteModel
+            .createWebsite(website)
+            .then(
+                function(newWebsite) {
+                    res.send(newWebsite);
+                },
+                function(error) {
+                    res.sendStatus(400).send(error);
+                }
+            );
+
     }
 
     function findALLWebsitesForUser(req, res) {
-        var result = [];
         var userId = req.params.uid;
-        for (var w in websites) {
-            if (websites[w].developerId === userId) {
-                result.push(websites[w])
-            }
-        }
-        res.json(result);
+        model
+            .websiteModel
+            .findALLWebsitesForUser(userId)
+            .then(
+                function (websites) {
+                    if (websites) {
+                        res.json(websites);
+                    } else {
+                        res.json([])
+                    }
+                },
+                function (error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
     function findWebsiteById(req, res) {
         var wid = req.params.wid;
-        for (var w in websites) {
-            if (websites[w]._id === wid) {
-                res.json(websites[w]);
-            }
-        }
+        model
+            .websiteModel
+            .findWebsiteById(wid)
+            .then(
+                function(website){
+                    if(website){
+                        res.json(website);
+                    } else {
+                        res.send('0')
+                    }
+                },
+                function (error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
 
     function updateWebsite(req, res){
         var website = req.body;
         var wid = req.params.wid;
-        for (var w in websites) {
-            if (websites[w]._id === wid) {
-                websites[w] = website;
-                break;
-            }
-        }
-        res.sendStatus(200);
+        model
+            .websiteModel
+            .updateWebsite(wid, website)
+            .then(
+                function(status){
+                    res.sendStatus(200);
+                },
+                function(error) {
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
 
 
     function deleteWebsite(req,res){
         var wid = req.params.wid;
-        for (var w in websites) {
-            if (websites[w]._id === wid) {
-                websites.splice(w, 1);
-            }
-        }
-        res.sendStatus(200);
+        model
+            .websiteModel
+            .deleteWebsite(wid)
+            .then(
+                function (status) {
+                    res.sendStatus(200);
+                },
+                function(error){
+                    res.sendStatus(400).send(error);
+                }
+            )
     }
 
-}
+};
 

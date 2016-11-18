@@ -5,7 +5,7 @@
 (function() {
     angular
         .module("WebAppMaker")
-        .controller("LoginController", LoginController)
+        .controller("LoginController", LoginController);
 
     function LoginController($location, UserService) {
         var vm = this;
@@ -16,12 +16,13 @@
             promise
                 .success(function(user){
                     if (user === '0'){
-                        vm.error = "No such user";
+                        vm.error = "No such user or invalid password";
                     } else {
                         $location.url("/user/" + user._id);
                     }
                 })
                 .error(function(){
+                    vm.error  = "400 error"
                 })
         }
     }

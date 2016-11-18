@@ -33,12 +33,11 @@
         init();
 
         function newPage(){
-            vm.page. _id = (new Date()).getTime().toString();
             vm.page.websiteId = vm.websiteId;
             var promise = PageService.createPage(vm.websiteId,  vm.page);
             promise
                 .success(function(){
-                    $location.url("/user/" +  vm.page. _id + "/website/" +  vm.websiteId + "/page/" + vm.page. _id);
+                    $location.url("/user/" +  vm.userId + "/website/" +  vm.websiteId + "/page/");
                 })
                 .error(function(){
 

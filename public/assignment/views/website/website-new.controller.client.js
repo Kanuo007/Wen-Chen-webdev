@@ -29,7 +29,7 @@
         init();
 
         function createWebsite(newWebSite){
-            newWebSite._id = (new Date()).getTime().toString();
+
             newWebSite.developerId = vm.userId;
             var promise = WebsiteService.createWebsite(newWebSite._id, newWebSite);
             promise

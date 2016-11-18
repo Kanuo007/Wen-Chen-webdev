@@ -27,11 +27,6 @@
                 .error(function(){
 
                 })
-        //     var widgets = $(".war-widgets")
-        //         .sortable({
-        //             axis: 'y'
-        //         });
-        //     console.log(widgets);
         }
         init();
 
