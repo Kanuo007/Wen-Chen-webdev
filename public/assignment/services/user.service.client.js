@@ -14,7 +14,7 @@
         var api = {
             createUser   : createUser,
             findUserById : findUserById,
-            findUserByUsername : findUserByUsername,
+            findUserByUserName : findUserByUserName,
             findUserByCredentials : findUserByCredentials,
             updateUser : updateUser,
             deleteUser : deleteUser
@@ -40,14 +40,9 @@
             return $http.get(url);
         }
 
-        function findUserByUsername(username) {
-            var result = [];
-            for(var u in users){
-                if(users[u].username === username){
-                    result.push(users[u]);
-                }
-            }
-            return result;
+        function findUserByUserName(username) {
+            var url = '/api/user?username='+username;
+            return $http.get(url);
         }
 
         function updateUser(user) {

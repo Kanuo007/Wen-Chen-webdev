@@ -38,21 +38,25 @@ module.exports = function(app,model) {
         if(query.password && query.username){
             findUserByCredentials(req,res);
         } else if (query.username){
-            findUserByUsername(req,res);
+            findUserByUserName(req,res);
         }
     }
 
-    function findUserByUsername(req, res){
+    function findUserByUserName(req, res){
         var username = req.query.username;
         model
             .userModel
-            .findUserByUsername(username)
+            .findUserByUserName(username)
             .then(
                 function (users) {
                     if (users) {
-                        console.log(user[0]);
-                        res.json(user[0]);
+                        if(users[0]) {
+                            res.json(users[0]);
+                        } else {
+                            res.send('0');
+                        }
                     } else {
+                        console.log("not found");
                         res.send('0')
                     }
                 },

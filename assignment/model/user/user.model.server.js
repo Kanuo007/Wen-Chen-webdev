@@ -10,7 +10,7 @@ module.exports = function() {
     var api = {
         createUser: createUser,
         findUserById: findUserById,
-        findUserByName: findUserByName,
+        findUserByUserName: findUserByUserName,
         findUserByCredentials: findUserByCredentials,
         updateUser: updateUser,
         deleteUser: deleteUser
@@ -27,7 +27,7 @@ module.exports = function() {
         return UserModel.findById(userId);
     }
 
-    function findUserByName(userName){
+    function findUserByUserName(userName){
         return UserModel.find({
             username : userName
         });
