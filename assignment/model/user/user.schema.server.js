@@ -12,7 +12,7 @@ module.exports = function () {
         "email" : String,
         "phone" : String,
         // list of reference
-      //  "websites": [{tyep: mongoose/Schema.Type.ObjectId, ref:'WebsiteModel'}],
+        "websites": [{type: mongoose.Schema.Types.ObjectId, ref:'WebsiteModel'}],
         // userSchema contains instance (not reference of the website)
         // "websites" : [WebsiteSchema],
         "dateCreated": { type: Date, default: Date.now }
