@@ -21,24 +21,26 @@
             promise
                 .success(function(widget){
                     vm.widget = widget;
-                    console.log("Hit here");
                 })
                 .error(function(){
-                    console.log("error");
                 })
 
         }
         init();
 
         function updateWidget(){
-            var promise = WidgetService.updateWidget(vm.wgid, vm.widget);
-            promise
-                .success(function(){
-                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
-                })
-                .error(function(){
+            if (typeof(vm.widget.name) === "undefined" || vm.widget.name === ""){
+                vm.error = "Name is required."
+            } else {
+                var promise = WidgetService.updateWidget(vm.wgid, vm.widget);
+                promise
+                    .success(function () {
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
+                    })
+                    .error(function () {
 
-                })
+                    })
+            }
         }
 
         function deleteWidget(){

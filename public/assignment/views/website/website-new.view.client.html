@@ -21,7 +21,7 @@
         <a class = "navbar-brand">
             <span class = "h3" id = "topright">New Website</span>
         </a>
-        <a ng-click ="model.createWebsite(newWebSite)">
+        <a ng-click ="model.createWebsite(name, description)">
             <h4 class="glyphicon glyphicon-ok" ></h4>
         </a>
     </div>
@@ -49,17 +49,19 @@
         <form id = right>
             <div class="form-group">
                 <label for="Name" class = widgetText>Name</label>
-                <input ng-model="newWebSite.name"
+                <input ng-model="name"
                        type="text" class="form-control" id="Name" placeholder="Blog Name">
             </div>
             <div class="form-group">
                 <label for="aaa" class = widgetText>WebSite Description</label>
                 <textarea id ="aaa";
                           type = text;
-                          ng-model="newWebSite.description"
+                          ng-model="description"
                           class="form-control"
                           placeholder="Description"></textarea>
-            </div>
+                <div ng-show="model.error" class = "alert alert-danger" role = " alert">
+                    {{model.error}}
+                </div>
 
         </form>
 

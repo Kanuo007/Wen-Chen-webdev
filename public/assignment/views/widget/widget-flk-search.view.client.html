@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-fixed-top bg-primary">
-    <a href="#/user/{{model.uid}}/website/{{mode.wid}}/page/{{mode.pid}}//widget">
+    <a href="#/user/{{model.uid}}/website/{{mode.wid}}/page/{{mode.pid}}/widget">
         <h4 class = "glyphicon glyphicon-chevron-left"></h4>
     </a>
     <a class = "navbar-brand" href = "#">
@@ -21,8 +21,7 @@
 <div class="row">
     <div class="col-xs-4" ng-repeat="photo in model.photos.photo">
         <img ng-click="model.selectPhoto(photo)"
-             ng-src="https://farm{{photo.farm}}.staticflickr.com/
-             {{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
+             ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
     </div>
 </div>
 

@@ -22,13 +22,14 @@ module.exports = function() {
         return UserModel.create(user);
     }
 
+
     function findUserById(userId){
         // UserModel.find({_id: userId}) --> returns an array
         return UserModel.findById(userId);
     }
 
     function findUserByUserName(userName){
-        return UserModel.find({
+        return UserModel.findOne({
             username : userName
         });
     }
@@ -54,7 +55,7 @@ module.exports = function() {
 
 
     function findUserByCredentials(username, password){
-       return UserModel.find({ // if you are sure there is only one element return, you could user findOne
+       return UserModel.findOne({ // if you are sure there is only one element return, you could user findOne
             username: username,
             password: password
         });

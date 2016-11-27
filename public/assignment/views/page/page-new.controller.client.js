@@ -32,16 +32,20 @@
         }
         init();
 
-        function newPage(){
-            vm.page.websiteId = vm.websiteId;
-            var promise = PageService.createPage(vm.websiteId,  vm.page);
-            promise
-                .success(function(){
-                    $location.url("/user/" +  vm.userId + "/website/" +  vm.websiteId + "/page/");
-                })
-                .error(function(){
+        function newPage(name, title){
+            if (typeof(name) === "undefined" || name === "") {
+                vm.error = "Name is required."
+            } else {
+                var page = {websiteId:vm.websiteId, name: name, title: title};
+                var promise = PageService.createPage(vm.websiteId, page);
+                promise
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/");
+                    })
+                    .error(function () {
 
-                })
+                    })
+            }
         }
     }
 

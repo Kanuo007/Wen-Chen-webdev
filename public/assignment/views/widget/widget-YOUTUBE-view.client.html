@@ -45,6 +45,9 @@
 
     <a ng-click = "model.deleteWidget()"
        class="btn btn-danger btn-block">Delete</a>
+    <div ng-show="model.error" class = "alert alert-danger" role = " alert">
+        {{model.error}}
+    </div>
 </div>
 
 

@@ -22,7 +22,10 @@
             .when("/user/:uid", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller: "ProfileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLogin: checkLogin
+                }
             })
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
@@ -69,7 +72,7 @@
                 controller: "EditWidgetController",
                 controllerAs: "model"
             })
-            .when("/searchImage", {
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/searchImage", {
                 templateUrl: "views/widget/widget-flk-search.view.client.html",
                 controller: "myController",
                 controllerAs: "model"
@@ -78,6 +81,24 @@
                 redirectTo:"/login"
             });
 
+        // use $q library
+        // do not wait for me, keep doing
+        function checkLogin($q, UserService ,$location) {
+            var deferred = $q.defer();
+            UserService
+                .checkLogin()
+                .success(
+                    function (user) {
+                        if (user != '0') {
+                            deferred.resolve();
+                        } else {
+                            deferred.reject();
+                            $location.url("/login");
+                        }
+                    }
+                );
+            return deferred.promise;
+        }
     }
 
 })();

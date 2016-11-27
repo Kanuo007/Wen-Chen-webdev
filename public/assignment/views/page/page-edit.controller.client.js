@@ -46,14 +46,18 @@
         init();
 
         function updatePage(){
-           var promise =  PageService.updatePage(vm.pageId , vm.page );
-            promise
-                .success(function(){
-                    $location.url("/user/" + vm.userId  + "/website/" + vm.websiteId + "/page");
-                })
-                .error(function(){
+            if (typeof(vm.page.name) === "undefined" || vm.page.name === "") {
+                vm.error = "Name is required."
+            } else {
+                var promise = PageService.updatePage(vm.pageId, vm.page);
+                promise
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                    })
+                    .error(function () {
 
-                })
+                    })
+            }
         }
 
         function deletePage(){

@@ -40,14 +40,18 @@
         init();
 
         function updateWebsite(){
-            var promise =  WebsiteService.updateWebsite(vm.wid , vm.website);
-            promise
-                .success(function(){
-                    $location.url("/user/" + vm.userId  + "/website");
-                })
-                .error(function(){
+            if (typeof(vm.website.name) === "undefined" || vm.website.name === "") {
+                vm.error = "Name is required."
+            } else {
+                var promise = WebsiteService.updateWebsite(vm.wid, vm.website);
+                promise
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website");
+                    })
+                    .error(function () {
 
-                })
+                    })
+            }
         }
 
         function deleteWebsite(){
