@@ -13,16 +13,28 @@ module.exports = function() {
         findWidgetsByPageId: findWidgetsByPageId,
         findWidgetById: findWidgetById,
         updateWidget: updateWidget,
-        deleteWidget: deleteWidget
+        deleteWidget: deleteWidget,
+        setModel: setModel
 
         // sortWidget: sortWidget
     };
     return api;
 
+    function setModel(_model) {
+        model = _model;
+    }
 
     function createWidget(widget){
-        console.log(widget);
-        return WidgetModel.create(widget);
+        WidgetModel.create(widget)
+            .then(function (widget) {
+                return model.pageModel
+                    .findPageById(widget.pageId)
+                    .then(function (page) {
+                        page.widgets.push(widget);
+                        widget.save();
+                        return page.save();
+                    })
+            })
     }
 
     //Retrieves all widgets for parent page whose id is pageId

@@ -13,15 +13,31 @@ module.exports = function() {
         findALLPagesForWebsite: findALLPagesForWebsite,
         findPageById: findPageById,
         updatePage: updatePage,
-        deletePage: deletePage
+        deletePage: deletePage,
+        setModel: setModel
 
     };
     return api;
 
-
-    function createPage(page){
-        return PageModel.create(page);
+    function setModel(_model) {
+        model = _model;
     }
+
+    function createPage(page) {
+        return PageModel
+            .create(page)
+            .then(function (page) {
+                return model.websiteModel
+                    .findWebsiteById(page.websiteId)
+                    .then(function (website) {
+                        website.pages.push(page);
+                        page.save();
+                        return website.save();
+                    })
+            })
+    }
+
+
 
     function findALLPagesForWebsite(websiteId) {
         return PageModel.find({
