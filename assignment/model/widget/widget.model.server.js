@@ -26,17 +26,8 @@ module.exports = function() {
     }
 
     function createWidget(widget){
-        return WidgetModel
-            .create(widget)
-            .then(function (widget) {
-                return model.pageModel
-                    .findPageById(widget.pageId)
-                    .then(function (page) {
-                        page.widgets.push(widget);
-                        widget.save();
-                        return page.save();
-                    })
-            })
+        return WidgetModel.create(widget)
+
     }
 
 
