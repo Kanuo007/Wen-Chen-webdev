@@ -25,7 +25,8 @@ module.exports = function() {
     }
 
     function createWidget(widget){
-        WidgetModel.create(widget)
+        return WidgetModel
+            .create(widget)
             .then(function (widget) {
                 return model.pageModel
                     .findPageById(widget.pageId)
@@ -36,6 +37,8 @@ module.exports = function() {
                     })
             })
     }
+
+
 
     //Retrieves all widgets for parent page whose id is pageId
     function findWidgetsByPageId(pageId) {
