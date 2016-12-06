@@ -13,10 +13,14 @@ module.exports = function() {
         findUserByUserName: findUserByUserName,
         findUserByCredentials: findUserByCredentials,
         updateUser: updateUser,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        setModel:setModel
     };
     return api;
 
+    function setModel(_model) {
+        model = _model;
+    }
 
     function createUser(user){
         return UserModel.create(user);

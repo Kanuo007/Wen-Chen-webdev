@@ -14,7 +14,8 @@ module.exports = function() {
         findALLWebsitesForUser: findALLWebsitesForUser,
         findWebsiteById: findWebsiteById,
         updateWebsite: updateWebsite,
-        deleteWebsite: deleteWebsite
+        deleteWebsite: deleteWebsite,
+        setModel: setModel
     };
     return api;
 
