@@ -4,6 +4,7 @@
 
 
 module.exports = function() {
+    var model = {};
     var mongoose = require("mongoose");
     var PageSchema = require("./page.schema.server")();
     var PageModel = mongoose.model("PageModel", PageSchema);
@@ -19,8 +20,8 @@ module.exports = function() {
     };
     return api;
 
-    function setModel(_model) {
-        model = _model;
+    function setModel(newmodel) {
+        model = newmodel;
     }
 
     function createPage(page) {

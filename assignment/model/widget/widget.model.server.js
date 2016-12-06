@@ -4,6 +4,7 @@
 
 
 module.exports = function() {
+    var model = {};
     var mongoose = require("mongoose");
     var WidgetSchema = require("./widget.schema.server")();
     var WidgetModel = mongoose.model("WidgetModel", WidgetSchema);
