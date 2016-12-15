@@ -1,7 +1,7 @@
 {
-  "name": "Muses-App",
+  "name": "MusesApp",
   "version": "1.0.0",
-  "description": "Music-App made by Iris",
+  "description": "MusicApp made by Iris",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
