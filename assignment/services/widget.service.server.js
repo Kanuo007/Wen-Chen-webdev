@@ -160,7 +160,7 @@ module.exports = function(app, model) {
             .then(
                 function(status){
                     console.log(newUrl);
-                    var url = '/assignment/index.html#/user/' + uid + '/website/' + wid + '/page/' + pid + '/widget/';
+                    var url = '/assignment/homePageBeforeLogin.view.client.html#/user/' + uid + '/website/' + wid + '/page/' + pid + '/widget/';
                     res.redirect(url);
                 },
                 function(error) {

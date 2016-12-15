@@ -1,0 +1,26 @@
+li{
+    padding-left:30px;
+    list-style: none;
+}
+.quizFormStyle{
+    padding-left:30px;
+    margin-top: 60px;
+    font-family: arial;
+    font-size:15px;
+    line-height: 1.2cm;
+}
+
+.con{
+    width: 70%;
+    margin: 20px auto;
+    overflow:auto;
+}
+
+.pull-left{
+    float:left;
+}
+
+footer{
+    padding: 5px 10px;
+    overflow: auto;
+}

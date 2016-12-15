@@ -10,17 +10,17 @@
         $routeProvider
             /* html template talk to controller by model*/
             .when("/login", {
-                templateUrl: "views/user/login.view.client.html",
+                templateUrl: "../project/views/user/login.view.client.html",
                 controller: "LoginController",
                 controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "views/user/register.view.client.html",
+                templateUrl: "../project/views/user/register.view.client.html",
                 controller: "RegisterController",
                 controllerAs: "model"
             })
             .when("/user/:uid", {
-                templateUrl: "views/user/profile.view.client.html",
+                templateUrl: "../project/views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model",
                 resolve: {

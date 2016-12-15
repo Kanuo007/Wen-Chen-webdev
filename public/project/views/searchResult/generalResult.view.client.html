@@ -1,0 +1,125 @@
+<!--Navbar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/user/{{model.uid}}/homePage">Muses</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/user/{{model.uid}}">ACCOUNT</a></li>
+                <li><a onclick="openNav()">SEARCH</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <div class = "container searchBG">
+        <input class="searchContent"
+               type="text"
+               ng-model = "searchKey"
+               placeholder = "type keyword(s) here" />
+        <a ng-click = model.goToSearch(searchKey)>Search</a>
+    </div>
+</div>
+
+
+
+<div class = "container top">
+    <h1><small>Showing result for</small>"{{model.searchKey}}"</h1>
+
+    </br>
+    <!--Artist-->
+    <h1>Artists</h1>
+    <br/>
+    <div class="row">
+        <div class="col-md-3 col-mg-4 col-xs-6 "
+             ng-repeat="artist in model.artistList | limitTo:8">
+            <a  href="#/user/{{model.uid}}/artist/{{artist.id}}">
+                <img class="img-circle"
+                     src="{{model.checkSafeUrl(artist.images[0].url)}}" alt=""
+                     width="150" height="150">
+                <p>{{artist.name.substring(0,20)}}</p>
+            </a>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <!--Album-->
+    <h1>Albums</h1>
+    <br/>
+    <div class="row">
+        <div class="col-md-2 col-md-3 col-xs-5 thumb" ng-repeat="album in model.albumList | limitTo:12">
+            <a class="thumbnail" href="#/user/{{model.uid}}/album/{{album.id}}">
+                <img class="img-responsive"
+                     src="{{model.checkSafeUrl(album.images[0].url)}}" alt=""
+                     height="300" width="300">
+                <div class="caption">
+                    <p>{{album.name.substring(0,10)}} </p>
+                    <p>{{album.artists[0].name.substring(0,10)}} </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <br/>
+    <!--Track-->
+    <h1>Songs</h1>
+    <br/>
+    <div class="trackBg">
+        <table class="tracks">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>TRACK</th>
+                    <th>ARTIST</th>
+                    <th></th>
+                    <th></th>
+                    <th>ALBUM</th>
+                    <th></th>
+                    <th>Demo</th>
+                    <th>Popularity</th>
+                    <th></th>
+                    <th>ADDED</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="track in model.trackList | limitTo:10">
+                <td></td>
+                <td></td>
+                <td>{{track.name.substring(0,30)}}</td>
+                <td>{{track.artists[0].name}}</td>
+                <td></td>
+                <td></td>
+                <td>{{track.album.name.substring(0,30)}}</td>
+                <td></td>
+                <td>
+                    <iframe ng-src = {{model.checkSafeUrl("https://embed.spotify.com/?uri="+track.uri)}}
+                            width="300" height="70"
+                            frameborder="0" allowtransparency="true"></iframe>
+                </td>
+                <td>
+                    <div class="pop-meter">
+                    <div class="pop-meter-background"></div>
+                    <div class="pop-meter-overlay" style="width: {{track.popularity }}%;"></div>
+                    </div>
+                </td>
+                <td></td>
+                <td><h3><a ng-click="model.addToMyPlayList(track.id)"
+                           class="glyphicon glyphicon-plus-sign"></a></h3></td>
+
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <hr>
+</div>

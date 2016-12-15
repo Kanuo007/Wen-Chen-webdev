@@ -1,0 +1,40 @@
+<!--Navbar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Muses</a>
+        </div>
+    </div>
+</nav>
+
+
+
+    <div class="container login">
+        <h1>Sing In</h1>
+        <!--ng-show : chekc whehter truth- means not empty, not null, not false-->
+        </br>
+
+        <div ng-show="model.error" class = "alert alert-danger" role = " alert">
+            {{model.error}}
+        </div>
+        <!--model means data, we give a name "username" no matter what parse in-->
+        <!--model connect the controller-->
+        <input type="text"
+               ng-model = "model.username"
+               class="form-control"
+               placeholder="username"/>
+        </br>
+        <input type="password"
+               ng-model = "model.password"
+               class="form-control"
+               placeholder="password"/>
+        </br>
+
+        <a ng-click = "model.login(model.username, model.password)"
+           class="btn bg-2 btn-block">Sign in</a>
+        <a href="#/register"
+           class="btn bg-3 btn-block">Go to register</a>
+    </div>
+
+
+

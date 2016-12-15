@@ -1,0 +1,181 @@
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.searchBG{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0);
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+    border: 0px;
+    margin: 0px auto;
+    margin-top: -51px;
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+}
+
+.searchContent{
+    width: 100%;
+    border: 0px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 300;
+    background: rgba(0, 0, 0, 0);
+}
+
+.top{
+    margin-top: 60px;
+}
+
+
+.trackBg{
+    background-color: black;
+}
+table.tracks {
+    width: 100%;
+    margin: 0 0px;
+    border-collapse: collapse;
+}
+
+
+table tr:hover {
+    background-color: #222326;
+}
+
+table tr.playing {
+    background-color: #393b40;
+}
+
+table tr td {
+    font-size: 9pt;
+    border-top: 1px solid #393b40;
+    padding: 4px 10px 4px 0;
+    color: white;
+    text-align: left;
+}
+
+table tr td i {
+    font-style: normal;
+    color: #aaa;
+}
+
+table.tracks tr td i > a {
+    color: inherit;
+}
+
+table tr td.nowrap {
+    white-space: nowrap;
+}
+
+table tr th {
+    text-align: left;
+    font-weight: 300;
+    font-size: 9pt;
+    color: #fff;
+    padding: 4px 10px 4px 0;
+}
+
+
+
+.wrap{
+    height: 500px;
+    overflow: scroll;
+}
+
+.pop-meter {
+    width: 30px;
+    height: 9px;
+    position: relative;
+}
+
+.pop-meter-background, .pop-meter-overlay {
+    width: 100%;
+    position: absolute;
+    top: -1px;
+    height: 9px;
+    overflow-x: hidden;
+}
+
+.pop-meter-background:after, .pop-meter-overlay:after {
+    content: ' ';
+    display: block;
+    -webkit-transform: translate(0,.5px);
+    -moz-transform: translate(0,.5px);
+    -ms-transform: translate(0,.5px);
+    -o-transform: translate(0,.5px);
+    transform: translate(0,.5px);
+    position: absolute;
+    left: -4px;
+    width: 2px;
+    height: 8px;
+    top: 0;
+}
+
+.pop-meter-background:after {
+    box-shadow: 4px 0 0 0 #3e3e40,8px 0 0 0 #3e3e40,12px 0 0 0 #3e3e40,16px 0 0 0 #3e3e40,20px 0 0 0 #3e3e40,24px 0 0 0 #3e3e40,28px 0 0 0 #3e3e40,32px 0 0 0 #3e3e40
+}
+
+.pop-meter-overlay:after {
+    box-shadow: 4px 0 0 0 #88898c,8px 0 0 0 #88898c,12px 0 0 0 #88898c,16px 0 0 0 #88898c,20px 0 0 0 #88898c,24px 0 0 0 #88898c,28px 0 0 0 #88898c,32px 0 0 0 #88898c;
+}
+
+
+

@@ -1,0 +1,143 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/user/{{model.userId}}/homePage">Muses</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-click="model.refresh()">UPGEADE</a></li>
+                <li><a href="#/user/{{model.uid}}">ACCOUNT</a></li>
+                <li><a ng-click = model.logout()>LOG_OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container quizFormStyle">
+    <h3>Take the quiz to be an VIP!</h3>
+    <h3><small>In order to check you are an real music fan, we give you an small quiz including 10 questions.</small></h3>
+        <h3><small>If you got more than 6 correct answer, you will become and VIP member.</small></h3>
+    <h3><small>VIP right: you will have an playList in your account and you could add your favorite song!</small></h3>
+    <h2>Quiz</h2>
+    <hr>
+    <form class="quizForm" id="q1" data-question="1">
+        <h4>Q1. What is the name of released track of Aerosmith?</h4>
+        <ui>
+            <li><input type="radio" name="q1" value="a"> Check me out</li>
+            <li><input type="radio" name="q1" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q1" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q1" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q2" data-question="2">
+        <h4>Q2.</h4>
+        <ui>
+            <li><input type="radio" name="q2" value="a"> Check me out</li>
+            <li><input type="radio" name="q2" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q2" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q2" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q3" data-question="3">
+        <h4>Q3.</h4>
+        <ui>
+            <li><input type="radio" name="q3" value="a"> Check me out</li>
+            <li><input type="radio" name="q3" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q3" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q3" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q4" data-question="4">
+        <h4>Q4.</h4>
+        <ui>
+            <li><input type="radio" name="q4" value="a"> Check me out</li>
+            <li><input type="radio" name="q4" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q4" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q4" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q5" data-question="5">
+        <h4>Q5.</h4>
+        <ui>
+            <li><input type="radio" name="q5" value="a"> Check me out</li>
+            <li><input type="radio" name="q5" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q5" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q5" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q6" data-question="6">
+        <h4>Q6.</h4>
+        <ui>
+            <li><input type="radio" name="q6" value="a"> Check me out</li>
+            <li><input type="radio" name="q6" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q6" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q6" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q7" data-question="7">
+        <h4>Q7.</h4>
+        <ui>
+            <li><input type="radio" name="q7" value="a"> Check me out</li>
+            <li><input type="radio" name="q7" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q7" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q7" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q8" data-question="8">
+        <h4>Q8.</h4>
+        <ui>
+            <li><input type="radio" name="q8" value="a"> Check me out</li>
+            <li><input type="radio" name="q8" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q8" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q8" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q9" data-question="9">
+        <h4>Q9.</h4>
+        <ui>
+            <li><input type="radio" name="q9" value="a"> Check me out</li>
+            <li><input type="radio" name="q9" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q9" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q9" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    <form class="quizForm" id="q10" data-question="10">
+        <h4>Q10.</h4>
+        <ui>
+            <li><input type="radio" name="q10" value="a"> Check me out</li>
+            <li><input type="radio" name="q10" value="b"> Check me out<br></li>
+            <li><input type="radio" name="q10" value="c"> Check me out<br></li>
+            <li><input type="radio" name="q10" value="d"> Check me out<br></li>
+        </ui>
+        <button id="submit">Submit</button>
+    </form>
+
+    </br>
+    <div id="result"></div>
+
+    <footer>
+        <div class="pull-left">Total : 10 Questions</div>
+    </footer>
+
+</div>

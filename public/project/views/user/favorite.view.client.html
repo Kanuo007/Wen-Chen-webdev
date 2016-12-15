@@ -1,0 +1,75 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/user/{{model.userId}}/homePage">Muses</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-if="model.user.VIP">VIP</a></li>
+                <li><a ng-if="!model.user.VIP" href = "#/user/{{model.userId}}/becomeVIP">UPGEADE</a></li>
+                <li><a ng-click = model.logout()>LOG_OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="menubar col-md-2 hidden-sm hidden-xs" >
+    <ul class=" nav nav-pills nav-stacked">
+        <li><a ng-href="#/user/{{model.userId}}">Profile</a></li>
+        <hr>
+        <li><a ng-href="#/user/{{model.userId}}/favorite">Favorite</a></li>
+        <hr>
+        <li ng-show="model.user.VIP"><a ng-href="#/user/{{model.userId}}/playList">PlayList</a></li>
+    </ul>
+</div>
+
+<div class = "login padding col-md-10" >
+    </br>
+    <h1>Favorite Artist</h1>
+    <hr>
+        <div class="row">
+            <div class="col-md-3 col-mg-4 col-xs-6 "
+                 ng-repeat="artist in model.artistList">
+                <h3><small>{{artist.name.substring(0,20)}}</small></h3>
+                <div>
+                <a  href="#/user/{{model.userId}}/artist/{{artist.id}}">
+                    <img class="img-circle"
+                         src="{{model.checkSafeUrl(artist.images[0].url)}}" alt=""
+                         width="150" height="150">
+
+                </a></div>
+                <button ng-click="model.deleteFromMyArtists(artist.id)"
+                class="btn">Delete</button>
+            </div>
+        </div>
+    </br>
+    </br>
+
+    <h1>Favorite Album</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3 col-mg-4 col-xs-6 "
+             ng-repeat="album in model.albumList">
+            <h3><small>{{album.name.substring(0,20)}}</small></h3>
+            <p>Artist : {{album.artists[0].name.substring(0,20)}}</p>
+            <p>Release Date : {{album.release_date.substring(0,20)}}</p>
+            <div>
+                <a  href="#/user/{{model.userId}}/album/{{album.id}}">
+                    <img
+                         src="{{model.checkSafeUrl(album.images[0].url)}}" alt=""
+                         width="150" height="150">
+
+                </a></div>
+            <button ng-click="model.deleteFromMyAlbums(album.id)"
+                    class="btn">Delete</button>
+        </div>
+    </div>
+    </br>
+    </br>
+
+</div>
+
+

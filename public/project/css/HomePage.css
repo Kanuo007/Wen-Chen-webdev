@@ -1,0 +1,157 @@
+.albumRec{
+    padding: 80px 120px;
+}
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+}
+
+.firstPage{
+    text-align: center;
+    font-size:90px;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+
+/* Add a dark background color with a little bit see-through */
+.navbar {
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand {
+    color: #d5d5d5 !important;
+}
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color:#29292c !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+/* Dropdown */
+.open .dropdown-toggle {
+    color: #fff ;
+    background-color: #555 !important;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+    color: #000 !important;
+}
+
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+    background-color: red !important;
+}
+
+footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+
+
+}
+
+footer a {
+    color: #f5f5f5;
+}
+
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+.bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+}
+
+.bg-2 {
+    background: #737373;
+    color: white;
+}
+
+.bg-3{
+    background: #cccccc;
+    color: #4d4d4d;
+}
+
+.bg-4{
+    background: #595959;
+    color: white;
+}
+
+.login{
+    margin-top: 50px ;
+}
+
+.menubar{
+    margin-top:50px;
+    padding-top:15px;
+    height: 900px;
+    background: #cccccc;;
+    font-size:18px;
+}
+
+.padding{
+    padding-left: 40px;
+    padding-right:40px;
+
+}
+
+
+
+a:link{text-decoration:none ; color:black ;}
+a:visited {text-decoration:none ; color:black;}
+a:hover {text-decoration:none ; color:black;}
+a:active {text-decoration:none ; color:black;}
+
+
+.padmid{
+    padding-left:10px;
+}
+
+.square {
+      float:left;
+      position: relative;
+      width: 30%;
+      padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
+      margin:1.66%;
+      overflow:hidden;
+  }
+
+.content {
+    position:absolute;
+    height:80%; /* = 100% - 2*10% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 10% 5%;
+}
+.ttt{
+    background-color: #aaaaaa;
+    color: black;
+}

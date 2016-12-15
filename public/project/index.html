@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app = "MusesApp">
+
 <head>
     <meta charset="UTF-8">
-    <title>Project Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/HomePage.css" rel="stylesheet"/>
+    <link href="css/search.css" rel="stylesheet"/>
+    <link href="css/quiz.css" rel="stylesheet"/>
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <script src = "js/search.js"></script>
+    <script src = "js/displaytime.js"></script>
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <script src = "services/user.service.client.js"></script>
+    <script src = "services/search.service.client.js"></script>
+
+    <script src = "../project/views/user/login.controller.client.js"></script>
+    <script src = "../project/views/user/profile.controller.client.js"></script>
+    <script src = "../project/views/user/register.controller.client.js"></script>
+    <script src = "../project/views/homePage/homePage.controller.client.js"></script>
+    <script src = "../project/views/searchResult/generalResult.controller.client.js"></script>
+    <script src = "views/searchResult/oneArtist.controller.client.js"></script>
+    <script src = "views/searchResult/oneAlbum.controller.client.js"></script>
+    <script src = "../project/views/user/favorite.controller.client.js"></script>
+    <script src = "../project/views/playList/playList.controller.client.js"></script>
+    <script src = "../project/views/user/becomeVIP.controller.client.js"></script>
 </head>
+
 <body>
-    <h1>Project Home Page</h1>
+<!--this is where we want to inject the content as we navigate between the pages-->
+<div ng-view></div>
+
 </body>
 </html>

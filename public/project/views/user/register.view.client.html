@@ -1,0 +1,40 @@
+<!--Navbar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Muses</a>
+        </div>
+    </div>
+</nav>
+
+    <div class="container login">
+
+        <h1>Register</h1>
+        </br>
+        <div ng-show="model.error" class = "alert alert-danger" role = " alert">
+            {{model.error}}
+        </div>
+        <input type="text"
+               ng-model= "username"
+               class="form-control"
+               placeholder="username"/>
+        </br>
+
+        <input type="password"
+               ng-model= "password"
+               class="form-control"
+               placeholder="password"/>
+        </br>
+
+        <input type="password"
+               ng-model= "varyPassword"
+               class="form-control"
+               placeholder="very password"/>
+        </br>
+        <a ng-click = "model.register(username, password, varyPassword)"
+           class="btn bg-2 btn-block">Register</a>
+
+        <a href="#/login"
+           class="btn bg-3 btn-block">Cancel</a>
+
+    </div>

@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/user/{{model.userId}}/homePage">Muses</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-if="model.user.VIP" ng-click="model.refresh()">VIP</a></li>
+                <li><a ng-if="!model.user.VIP" href = "#/user/{{model.userId}}/becomeVIP">UPGEADE</a></li>
+                <li><a ng-click = model.logout()>LOG_OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="menubar col-md-2 hidden-sm hidden-xs" >
+        <ul class=" nav nav-pills nav-stacked">
+            <li><a href="#/user/{{model.userId}}">Profile</a></li>
+            <hr>
+            <li><a href="#/user/{{model.userId}}/favorite">Favorite</a></li>
+            <hr>
+            <li ng-if="model.user.VIP"><a href="#/user/{{model.userId}}/playList">PlayList</a></li>
+        </ul>
+</div>
+
+<div class = "login padding col-md-10" >
+        </br>
+        <h1>Profile</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input ng-model= "model.user.username" type="text" class="form-control" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input ng-model= "model.user.email" type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
+            </div>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input ng-model = "model.user.firstName" type="text" class="form-control" id="first-name" placeholder="Alice">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input ng-model = "model.user.lastName" type="text" class="form-control" id="last-name" placeholder="Wonderland">
+            </div>
+            <div class="form-group">
+                <h4>VIP : {{model.user.VIP}}</h4>
+            </div>
+        </br>
+        </form>
+
+
+        <a class="btn bg-4  btn-block"
+           ng-click = model.updateUser() >Update</a>
+
+        <a class="btn bg-3  btn-block"
+           ng-click = model.deleteUser()> Unregister</a>
+    </div>
+
+

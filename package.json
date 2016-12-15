@@ -1,7 +1,7 @@
 {
-  "name": "web-dev",
+  "name": "Muses-App",
   "version": "1.0.0",
-  "description": "Web Dev at Northeastern University",
+  "description": "Music-App made by Iris",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -13,13 +13,15 @@
     "mongoose": "^4.6.8",
     "multer": "^1.2.0",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
   },
-  "devDependencies": {},
+
+  "devDependencies": {
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Jose G. Annunziato",
+  "author": "Iris",
   "license": "ISC"
 }

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/user/{{model.userId}}/homePage">Muses</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>VIP</a></li>
+                <li><a ng-click = model.logout()>LOG_OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="menubar col-md-2 hidden-sm hidden-xs" >
+    <ul class=" nav nav-pills nav-stacked">
+        <li><a href="#/user/{{model.userId}}">Profile</a></li>
+        <hr>
+        <li><a href="#/user/{{model.userId}}/favorite">Favorite</a></li>
+        <hr>
+        <li ng-show="model.user.VIP"><a href="#/user/{{model.userId}}/playList">PlayList</a></li>
+    </ul>
+</div>
+
+<div class = "login padding col-md-10" >
+    </br>
+    <h1>PlayList</h1>
+<hr>
+    <div class="trackBg">
+        <table class="tracks">
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>TRACK</th>
+                <th>ARTIST</th>
+                <th>ALBUM</th>
+                <th></th>
+                <th>Demo</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="track in model.playList | limitTo:50">
+                <td></td>
+                <td></td>
+                <td>{{track.name}}</td>
+                <td>{{track.artists[0].name}}</td>
+                <td>{{track.album.name}}</td>
+                <td></td>
+                <td>
+                    <iframe ng-src = {{model.checkSafeUrl("https://embed.spotify.com/?uri="+track.uri)}}
+                            width="300" height="70"
+                            frameborder="0" allowtransparency="true"></iframe>
+                </td>
+                <td><a ng-click="model.deleteSongFromMyPlayList(track.id)"><h3><i class="fa fa-trash-o" aria-hidden="true"></i></a></h3></td>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
