@@ -32,13 +32,13 @@
             // set correct answers
             sessionStorage.setItem('a1', 'b');
             sessionStorage.setItem('a2', 'b');
-            sessionStorage.setItem('a3', 'b');
-            sessionStorage.setItem('a4', 'b');
-            sessionStorage.setItem('a5', 'b');
-            sessionStorage.setItem('a6', 'b');
-            sessionStorage.setItem('a7', 'b');
+            sessionStorage.setItem('a3', 'a');
+            sessionStorage.setItem('a4', 'a');
+            sessionStorage.setItem('a5', 'a');
+            sessionStorage.setItem('a6', 'c');
+            sessionStorage.setItem('a7', 'd');
             sessionStorage.setItem('a8', 'b');
-            sessionStorage.setItem('a9', 'b');
+            sessionStorage.setItem('a9', 'd');
             sessionStorage.setItem('a10', 'b');
         }
         init();
