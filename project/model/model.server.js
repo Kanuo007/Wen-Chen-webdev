@@ -3,7 +3,7 @@
  */
 module.exports = function() {
     var mongoose = require('mongoose');
-    // mongoose.connect('mongodb://localhost/muses_app');
+    //mongoose.connect('mongodb://localhost/muses_app');
 
 
     var userModel = require("./user/user.model.server")();
