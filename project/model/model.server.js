@@ -10,7 +10,7 @@ module.exports = function() {
 
 
     var model = {
-        userModel: userModel,
+        userModel: userModel
     };
 
     return model;
